@@ -2,17 +2,13 @@
 import { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { MicIcon, Search, XCircleIcon } from "lucide-react";
-
 export function UserInput() {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
   return (
     <div className="flex flex-col items-center gap-4 sm:gap-10">
-      <h1 className="text-4xl sm:text-6xl font-bold">
-        <span className="bg-gradient-to-r from-red-500 to-green-500 bg-clip-text text-transparent">ibharat</span>
-      </h1>
-      <div className="relative max-w-2xl w-full flex justify-center">
+      <div className="relative max-w-3xl w-full flex flex-col items-center gap-4 sm:gap-10">
         <Input
           type="text"
           placeholder="Ask your query"
