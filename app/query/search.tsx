@@ -44,12 +44,12 @@ const SearchResult = () => {
   ];
 
   return (
-    <div className='flex flex-col md:flex-row gap-2'>
-      <div className="w-screen lg:w-3/4 ">
+    <div className='flex flex-col md:flex-row gap-0 sm:gap-2'>
+      <div className="max-w-screen lg:w-3/4 ">
       {searchResults.map((result, index) => (
-        <div key={index} className="mb-1.5 bg-gray-800/10 px-3 py-4 rounded-lg">
+        <div key={index} className="mb-1.5 bg-gray-400/10 dark:bg-gray-800/10 px-3 py-4 rounded-lg">
           <div className="flex items-center gap-2">
-            <SketchLogoIcon className="ring-1 ring-slate-100/10 rounded-md bg-gray-700/50 hover:bg-gray-700/90 p-1 h-5 w-5"/>
+            <SketchLogoIcon className="ring-1 ring-slate-100/10 rounded-md bg-gray-400/10 dark:bg-gray-700/50 hover:bg-red-400 hover:dark:bg-gray-700/90 p-1 h-5 w-5"/>
           <a href={result.url} className="text-blue-400 text-sm sm:text-base font-medium hover:underline">{result.title}</a>
           <span><DotsVerticalIcon/></span>
           </div>

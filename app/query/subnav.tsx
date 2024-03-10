@@ -1,4 +1,4 @@
-import { SearchCheck, Images, Airplay, Newspaper, MapIcon, Sparkles } from "lucide-react"
+import { SearchCheck, Images, Airplay, Newspaper, MapIcon } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
