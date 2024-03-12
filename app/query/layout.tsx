@@ -1,4 +1,4 @@
-import { UserInput } from "@/components/custom/input"
+import { UserInput } from "@/app/input"
 import { DropdownNavigationMenu } from "@/components/custom/dropdown-menu";
 import { SubNav } from "./subnav";
 

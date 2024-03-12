@@ -1,19 +1,19 @@
 "use client"
-import { FormEvent, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Input } from "@/components/ui/input";
 import { MicIcon, Search, XCircleIcon } from "lucide-react";
-export function UserInput() {
+import React, { FormEvent, useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+
+export const UserInput: React.FC = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const router = useRouter();
-  
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const text = encodeURIComponent(inputValue); // Encode inputValue for URL
-    router.push(`/query?q=${text}`);
+    router?.push(`/query?q=${encodeURIComponent(inputValue)}`);
   };
-
 
   return (
     <div className="flex flex-col items-center gap-4 sm:gap-10">
