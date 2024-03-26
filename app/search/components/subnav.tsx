@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 
 export const SubNav = () => {
     return (
-        <nav className="w-full overflow-x-auto pb-3 border-b border-gray-900">
+        <nav className="w-full overflow-x-auto mb-2 pb-2 border-b border-gray-900">
             <ul className="flex sm:justify-center gap-3">
                 <li>
                     <Link href="/search" className="flex items-center gap-2 hover:text-gray-400">
