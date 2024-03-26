@@ -1,5 +1,5 @@
 "use client"
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Loader2 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import {
@@ -18,7 +18,8 @@ import {
   AlertTitle,
 } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
-import { redirect } from 'next/navigation';
+import { RocketIcon } from "@radix-ui/react-icons"
+import { useRouter } from 'next/navigation';
 
 interface FormData {
   email: string;
@@ -30,12 +31,14 @@ interface ApiResponse {
 }
 
 export default function UserLogin() {
+  const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     email: '',
     password: ''
   });
   const [loading, setLoading] = useState<Boolean>(false);
   const [loginFailed, setLoginFailed] = useState<Boolean>(false);
+  const [loginSuccess, setLoginSuccess] = useState<Boolean>(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -64,8 +67,6 @@ export default function UserLogin() {
       }
 
       const data: ApiResponse = await response.json();
-      console.log("calling to api")
-      console.log(data)
 
       // Store session ID in cookies
       document.cookie = `token=${data.token}; path=/`;
@@ -73,14 +74,23 @@ export default function UserLogin() {
       // Store session ID in local storage
       localStorage.setItem('token', data.token);
       localStorage.setItem('userLogin', "true");
-      redirect('/')
+      setLoginSuccess(true);
     } catch (error:any) {
+      console.log(error)
       console.error('Error:', error.message);
       setLoginFailed(true); // Set loginFailed to true if login fails
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (loginSuccess) {
+      setTimeout(() => {
+        router.push('/');
+      }, 1000); // Redirect after 1 seconds
+    }
+  }, [loginSuccess, router]);
 
   return (
     <Card>
@@ -127,6 +137,17 @@ export default function UserLogin() {
               <AlertTitle>Error</AlertTitle>
               <AlertDescription>
                 Your credentials are invalid. Please log in again.
+              </AlertDescription>
+            </Alert>
+           </div>
+          )}
+           {loginSuccess && (
+           <div className='absolute top-2 sm:top-10 right-2 sm:right-10'>
+               <Alert>
+               <RocketIcon className="h-4 w-4" />
+              <AlertTitle>Success</AlertTitle>
+              <AlertDescription>
+                Login successful. Redirecting to home page...
               </AlertDescription>
             </Alert>
            </div>
