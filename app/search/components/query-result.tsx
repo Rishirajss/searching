@@ -42,13 +42,13 @@ export const ResultPage: React.FC = () => {
             {data.map((res: any, index: number) => (
               <div
                 key={index}
-                className="mb-1.5 bg-gray-400/10 dark:bg-gray-800/10 px-3 py-4 rounded-lg"
+                className="mb-1.5 bg-gray-300/20 dark:bg-gray-800/10 px-3 py-4 rounded-lg"
               >
                 <div className="flex items-center gap-2">
                   <SketchLogoIcon className="ring-1 ring-slate-100/10 rounded-md bg-gray-400/10 dark:bg-gray-700/50 hover:bg-red-400 hover:dark:bg-gray-700/90 p-1 h-5 w-5" />
                   <a
                     href={res.domain}
-                    className="text-blue-400 text-sm sm:text-base font-medium hover:underline"
+                    className="text-blue-500 text-sm sm:text-base font-medium hover:underline"
                   >
                     {res.metaTags.title}
                   </a>
@@ -56,16 +56,16 @@ export const ResultPage: React.FC = () => {
                     <DotsVerticalIcon />
                   </span>
                 </div>
-                <span className="text-xs text-gray-400 hover:underline hover:text-blue-400">
+                <span className="text-xs text-gray-500 hover:underline hover:text-blue-400">
                   {res.domain}
                 </span>
-                <p className="text-gray-400 text-sm sm:text-base">
+                <p className="text-gray-700 dark:text-gray-400 text-sm sm:text-base">
                   {res.metaTags && res.metaTags.description}
                 </p>
               </div>
             ))}
           </div>
-          <div className="hidden lg:block md:w-1/4 h-fit p-6 mr-4 bg-gray-800/10 rounded-md">
+          <div className="hidden lg:block md:w-1/4 h-fit p-6 mr-4 bg-gray-300/20 dark:bg-gray-800/10 rounded-md">
             <h1>HTML</h1>
             <p>
               Family of markup languages for displaying information viewable in
@@ -100,7 +100,9 @@ export const ResultPage: React.FC = () => {
             </table>
           </div>
         </div>
-        <PaginationElement/>
+        <div className="py-2">
+          <PaginationElement/>
+        </div>
     </>
   );
 };
