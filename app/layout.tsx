@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/custom/theme-provider"
-
-
-const inter = Inter({ subsets: ["latin"] });
+import { ThemeProvider } from "@/components/custom/theme-provider";
+import Footer from "@/components/custom/footer";
 
 export const metadata: Metadata = {
   title: "ibharat",
@@ -18,15 +15,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-         <ThemeProvider
-         attribute="class"
-         defaultTheme="system"
-         enableSystem
-         disableTransitionOnChange
-       >
-         {children}
-       </ThemeProvider>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+        <Footer />
       </body>
     </html>
   );
