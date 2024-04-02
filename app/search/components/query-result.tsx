@@ -4,10 +4,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { fetchWithHeaders } from "../../../utils/fetWithHeaders";
 import { DotsVerticalIcon } from "@radix-ui/react-icons";
 import { RocketIcon } from "@radix-ui/react-icons"
-import { SketchLogoIcon } from "@radix-ui/react-icons";
 import Spinner from "../spinner";
 import { SubNav } from "./subnav";
-import { PaginationElement } from "./pagination";
+import { PaginationComponent } from "./pagination";
 
 const BASE_URL = "https://beta.api.search.ibharat.org/api/search";
 
@@ -15,7 +14,7 @@ export const ResultPage: React.FC = () => {
   const search = useSearchParams();
   const searchQuery = search ? search.get("q") : null;
   const encodedSearchQuery = encodeURI(searchQuery || "");
-  const page = 1; // Default page value
+  const page = parseInt(search.get('page') || '1', 10); // getting page for pagination
   const router = useRouter();
 
   const { data, isLoading } = useSWR(
@@ -24,23 +23,30 @@ export const ResultPage: React.FC = () => {
     { revalidateOnFocus: false },
   );
 
+  const handlePageChange = (newPage: number) => {
+    router.push(`/search?q=${encodedSearchQuery}&page=${newPage}`);
+  };
+
   if (!encodedSearchQuery) {
     router.push("/search");
   }
 
   if (isLoading) {
+    console.log("loading is true")
     return <Spinner />;
   }
 
   if (!data) {
     return (<p className="text-center mt-10">UH OH... no results found!.</p>);
   }
+
   return (
     <>
       <SubNav />
       <div className="flex flex-col md:flex-row gap-0 sm:gap-2">
         <div className="max-w-screen lg:w-3/4 ">
-          {data.map((res: any, index: number) => (
+        <p className="py-2 px-2">About <strong>{data.totalCount}</strong> result for <strong>`{searchQuery}`</strong> keyword.</p>
+          {data.data.map((res: any, index: number) => (
             <div
               key={index}
               className="mb-1.5 bg-gray-300/20 dark:bg-gray-800/10 px-3 py-4 rounded-lg"
@@ -110,7 +116,11 @@ export const ResultPage: React.FC = () => {
         </div>
       </div>
       <div className="py-2">
-        <PaginationElement />
+      <PaginationComponent
+        totalPages={data.totalPages}
+        currentPage={page}
+        handlePageChange={handlePageChange}
+      />
       </div>
     </>
   );
