@@ -22,7 +22,7 @@ export const ResultPage: React.FC = () => {
     fetchWithHeaders,
     { revalidateOnFocus: false },
   );
-
+    console.log(data)
   const handlePageChange = (newPage: number) => {
     router.push(`/search?q=${encodedSearchQuery}&page=${newPage}`);
   };
@@ -79,7 +79,7 @@ export const ResultPage: React.FC = () => {
             </div>
           ))}
         </div>
-        <div className="hidden lg:block md:w-1/4 h-fit p-6 mr-4 bg-gray-300/20 dark:bg-gray-800/10 rounded-md">
+        <div className="hidden lg:block md:w-1/4 h-fit p-6 mt-10 bg-gray-300/20 dark:bg-gray-800/10 rounded-md">
           <h1>HTML</h1>
           <p>
             Family of markup languages for displaying information viewable in
