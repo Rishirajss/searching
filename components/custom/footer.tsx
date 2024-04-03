@@ -1,0 +1,119 @@
+import Link from "next/link";
+import Image from "next/image";
+
+const Footer = () => {
+  const generalLinks = [
+    { label: "Feedback", href: "#" },
+    { label: "Advertising", href: "#" },
+    { label: "Submit URL", href: "#" },
+  ];
+
+  const companyLinks = [
+    { label: "About Us", href: "#" },
+    { label: "Contact Us", href: "#" },
+    { label: "Blog", href: "#" },
+  ];
+
+  const legalLinks = [
+    { label: "Terms of Use", href: "#" },
+    { label: "Privacy Policy", href: "#" },
+    { label: "Disclaimer", href: "#" },
+  ];
+
+  const followUsLinks = [
+    { label: "Koo", href: "#" },
+    { label: "Twitter", href: "#" },
+    { label: "More Links", href: "#" },
+  ];
+
+  return (
+    <footer className="dark:bg-gray-800/20 bg-gray-200/40 dark:text-white text-gray-800 py-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="flex items-center justify-center  lg:col-span-2">
+          <div className="mb-8">
+            <h3 className="text-2xl md:text-4xl text-center font-bold mb-4 bg-gradient-to-r from-red-500 to-green-500 bg-clip-text text-transparent">
+              iBharat
+            </h3>
+            <div className="flex gap-2">
+              <div className="mb-4">
+                <Link href="#">
+                  <Image
+                    src="/google-play.png"
+                    alt="Download on Google Play"
+                    width={100}
+                    height={40}
+                  />
+                </Link>
+              </div>
+              <div>
+                <Link href="#">
+                  <Image
+                    src="/app-store.png"
+                    alt="Download on App Store"
+                    width={100}
+                    height={40}
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-lg font-bold mb-4">GENERAL</h3>
+            {generalLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="block mb-2 hover:underline dark:text-white text-gray-800"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">COMPANY</h3>
+            {companyLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="block mb-2 hover:underline dark:text-white text-gray-800"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">LEGAL</h3>
+            {legalLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="block mb-2 hover:underline dark:text-white text-gray-800"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">FOLLOW US</h3>
+            {followUsLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="block mb-2 hover:underline dark:text-white text-gray-800"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="text-center mt-8">
+        <p className="text-sm">© 2024 iBharat.org, Made in India.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
