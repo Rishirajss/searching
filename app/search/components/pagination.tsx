@@ -1,4 +1,12 @@
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
 interface PaginationProps {
   totalPages: number;
@@ -11,7 +19,7 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
   totalPages,
   currentPage,
   handlePageChange,
-  visiblePages = 5,
+  visiblePages = 3,
 }) => {
   const renderPaginationLinks = () => {
     const startPage = Math.max(1, currentPage - Math.floor(visiblePages / 2));
@@ -20,20 +28,22 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
     const paginationItems = [];
 
     // Ellipsis (before the "Previous" button)
-    if (startPage > 1) {
-      paginationItems.push(
-        <PaginationItem key="start-ellipsis">
-          <PaginationEllipsis />
-        </PaginationItem>
-      );
-    }
+    // if (startPage > 1) {
+    //   paginationItems.push(
+    //     <PaginationItem key="start-ellipsis">
+    //       <PaginationEllipsis />
+    //     </PaginationItem>,
+    //   );
+    // }
 
     // Previous button
     if (currentPage > 1) {
       paginationItems.push(
         <PaginationItem key="prev">
-          <PaginationPrevious onClick={() => handlePageChange(currentPage - 1)} />
-        </PaginationItem>
+          <PaginationPrevious
+            onClick={() => handlePageChange(currentPage - 1)}
+          />
+        </PaginationItem>,
       );
     }
 
@@ -41,10 +51,13 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
     for (let i = startPage; i <= endPage; i++) {
       paginationItems.push(
         <PaginationItem key={i}>
-          <PaginationLink onClick={() => handlePageChange(i)} isActive={i === currentPage}>
+          <PaginationLink
+            onClick={() => handlePageChange(i)}
+            isActive={i === currentPage}
+          >
             {i}
           </PaginationLink>
-        </PaginationItem>
+        </PaginationItem>,
       );
     }
 
@@ -53,7 +66,7 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
       paginationItems.push(
         <PaginationItem key="end-ellipsis">
           <PaginationEllipsis />
-        </PaginationItem>
+        </PaginationItem>,
       );
     }
 
@@ -62,7 +75,7 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
       paginationItems.push(
         <PaginationItem key="next">
           <PaginationNext onClick={() => handlePageChange(currentPage + 1)} />
-        </PaginationItem>
+        </PaginationItem>,
       );
     }
 

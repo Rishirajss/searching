@@ -28,7 +28,7 @@ const Footer = () => {
 
   return (
     <footer className="dark:bg-gray-800/20 bg-gray-200/40 dark:text-white text-gray-800 py-8">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-0 md:gap-8">
         <div className="flex items-center justify-center  lg:col-span-2">
           <div className="mb-8">
             <h3 className="text-2xl md:text-4xl text-center font-bold mb-4 bg-gradient-to-r from-red-500 to-green-500 bg-clip-text text-transparent">
@@ -58,7 +58,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center place-content-center">
           <div>
             <h3 className="text-lg font-bold mb-4">GENERAL</h3>
             {generalLinks.map((link) => (
