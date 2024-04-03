@@ -1,61 +1,52 @@
-import { SearchCheck, Images, Airplay, Newspaper, MapIcon } from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { SearchCheck, Images, Airplay, Newspaper, MapIcon } from "lucide-react";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+
+interface TabProps {
+  tab: string;
+  label: string;
+  icon: React.ReactNode;
+}
+
+const tabs: TabProps[] = [
+  { tab: "all", label: "All", icon: <SearchCheck className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> },
+  { tab: "images", label: "Images", icon: <Images className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> },
+  { tab: "videos", label: "Videos", icon: <Airplay className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> },
+  { tab: "maps", label: "Maps", icon: <MapIcon className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> },
+  { tab: "news", label: "News", icon: <Newspaper className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> },
+  { tab: "shopping", label: "Shopping", icon: <SearchCheck className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> },
+];
 
 export const SubNav = () => {
-    return (
-        <nav className="w-full overflow-x-auto mb-2 pb-2 border-b border-gray-900">
-            <ul className="flex sm:justify-center gap-3">
-                <li>
-                    <Link href="/search" className="flex items-center gap-2 hover:text-gray-400">
-                    <Button variant="ghost" className="rounded-full">
-                        <SearchCheck className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> <span className="text-[12px] sm:text-sm">All</span>
-                    </Button>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/images" className="flex items-center gap-2 hover:text-gray-400">
-                    <Button variant="ghost" className="rounded-full">
-                        <Images className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> <span className="text-[12px] sm:text-sm">Images</span>
-                    </Button>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/videos" className="flex items-center gap-2 hover:text-gray-400">
-                    <Button variant="ghost" className="rounded-full">
-                        <Airplay className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> <span className="text-[12px] sm:text-sm">Videos</span>
-                    </Button>
-                    </Link>    
-                </li>
-                <li>
-                    <Link href="/news" className="flex items-center gap-2 hover:text-gray-400">
-                    <Button variant="ghost" className="rounded-full">
-                        <MapIcon className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> <span className="text-[12px] sm:text-sm">Maps</span>
-                    </Button>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/maps" className="flex items-center gap-2 hover:text-gray-400">
-                    <Button variant="ghost" className="rounded-full">
-                        <Newspaper className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> <span className="text-[12px] sm:text-sm">News</span>
-                    </Button>
-                    </Link>   
-                </li>
-                <li>
-                    <Link href="/maps" className="flex items-center gap-2 hover:text-gray-400">
-                    <Button variant="ghost" className="rounded-full">
-                        <SearchCheck className="mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" /> <span className="text-[12px] sm:text-sm">Shopping</span>
-                    </Button>
-                    </Link>   
-                </li>
-                {/* <li>
-                    <Link href="/maps" className="flex items-center gap-2 hover:text-gray-400">
-                    <Button variant="outline" className="rounded-full">
-                        <Sparkles className="mr-2 h-4 w-4" /> Trendings
-                    </Button>
-                    </Link>   
-                </li> */}
-            </ul>
-        </nav>
-    )
-}
+  const router = useRouter();
+  const searchParams = useSearchParams();
+//   const { query } = router;
+  const activeTab = searchParams.get('tab') || "all";
+
+  const handleTabClick = (tab: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set('tab', tab);
+    router.push(`?${params.toString()}`);
+  };
+  const isTabActive = (tab: string) => tab === activeTab;
+
+  return (
+    <nav className="w-full overflow-x-auto mb-2 pb-2 border-b border-gray-900">
+      <ul className="flex sm:justify-center gap-3">
+        {tabs.map(({ tab, label, icon }) => (
+          <li key={tab}>
+            <Button
+              variant={isTabActive(tab) ? "default" : "ghost"}
+              className="rounded-full"
+              onClick={() => handleTabClick(tab)}
+            >
+              {icon}
+              <span className="text-[12px] sm:text-sm">{label}</span>
+            </Button>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};

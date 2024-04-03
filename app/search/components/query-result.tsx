@@ -32,7 +32,6 @@ export const ResultPage: React.FC = () => {
   }
 
   if (isLoading) {
-    console.log("loading is true")
     return <Spinner />;
   }
 
