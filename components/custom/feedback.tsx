@@ -37,15 +37,16 @@ export default function FeedbackForm() {
   function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
       title: "Hey we have accepted your feedback succesfully:",
-      description: (
-        <p>And we will process your request shortly. Thanks!</p>
-      ),
+      description: <p>And we will process your request shortly. Thanks!</p>,
     });
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full md:w-2/3 space-y-6"
+      >
         <FormField
           control={form.control}
           name="email"
