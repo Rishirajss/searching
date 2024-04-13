@@ -1,4 +1,4 @@
-import { UserInput } from "@/app/input";
+import { UserInput } from "@/components/custom/input";
 import Link from "next/link";
 import { DropdownNavigationMenu } from "@/components/custom/dropdown-menu";
 

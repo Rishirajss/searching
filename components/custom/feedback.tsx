@@ -35,13 +35,10 @@ export default function FeedbackForm() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log("Hey you successflly submitted the form");
     toast({
-      title: "You submitted the following values:",
+      title: "Hey we have accepted your feedback succesfully:",
       description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-blue-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
+        <p>And we will process your request shortly. Thanks!</p>
       ),
     });
   }
