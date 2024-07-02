@@ -8,7 +8,7 @@ import Spinner from "../spinner";
 import { SubNav } from "./subnav";
 import { PaginationComponent } from "./pagination";
 
-const BASE_URL = "https://beta.api.search.ibharat.org/api/search";
+const BASE_URL = "https://beta.api.admin.ibharat.org/search";
 
 export const ResultPage: React.FC = () => {
   const search = useSearchParams();
@@ -22,6 +22,7 @@ export const ResultPage: React.FC = () => {
     fetchWithHeaders,
     { revalidateOnFocus: false },
   );
+  console.log(data);
   const handlePageChange = (newPage: number) => {
     router.push(`/search?q=${encodedSearchQuery}&page=${newPage}`);
   };
@@ -51,7 +52,7 @@ export const ResultPage: React.FC = () => {
             About <strong>{data.totalCount}</strong> result for{" "}
             <strong>`{searchQuery}`</strong> keyword.
           </p>
-          {data.data.map((res: any, index: number) => (
+          {data.records.map((res: any, index: number) => (
             <div
               key={index}
               className="mb-1.5 bg-gray-300/20 dark:bg-gray-800/10 px-3 py-4 rounded-lg"
