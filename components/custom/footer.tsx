@@ -3,14 +3,14 @@ import Image from "next/image";
 
 const Footer = () => {
   const generalLinks = [
-    { label: "Feedback", href: "#" },
+    { label: "Feedback", href: "feedback" },
     { label: "Advertising", href: "#" },
-    { label: "Submit URL", href: "#" },
+    { label: "Submit URL", href: "submiturl" },
   ];
 
   const companyLinks = [
     { label: "About Us", href: "#" },
-    { label: "Contact Us", href: "#" },
+    { label: "Contact Us", href: "contact" },
     { label: "Blog", href: "#" },
   ];
 

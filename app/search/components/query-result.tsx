@@ -35,7 +35,11 @@ export const ResultPage: React.FC = () => {
   }
 
   if (!data) {
-    return <p className="text-center mt-10">UH OH... no results found!.</p>;
+    return (
+      <div className="flex justify-center items-center h-52">
+        <p className="">UH OH... no results found!.</p>
+      </div>
+    );
   }
 
   return (
