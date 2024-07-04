@@ -1,0 +1,36 @@
+name: Testing CI/CD pipeline
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout latest code
+      uses: actions/checkout@v2
+    
+    - name: Deploy using ssh
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.STAGING_HOST }}
+        username: ${{ secrets.STAGING_USER }}
+        key: ${{ secrets.STAGING_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd /servers/ibharat-new
+          git checkout dev
+          git stash  # Stash any local changes
+          git pull origin dev
+          git status
+          bun install
+          bun run build
+          if ! pm2 show ibharat-org; then
+            pm2 start --name "ibharat-org" bun -- start
+          else
+            pm2 restart ibharat-org
+          fi
