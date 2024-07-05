@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
-import { MicIcon, Search, XCircleIcon } from "lucide-react";
+import { MicIcon, SearchX } from "lucide-react";
 import React, { FormEvent, useState } from "react";
 
 export const UserInput: React.FC = () => {
@@ -42,7 +42,7 @@ export const UserInput: React.FC = () => {
         <div className="absolute bottom-2.5 right-3 z-100 flex itmes-center justify-center gap-1.5 text-gray-600 dark:text-gray-500">
           {inputValue && (
             <span className="flex gap-1">
-              <XCircleIcon
+              <SearchX
                 className="cursor-pointer"
                 onClick={() => setInputValue("")}
               />{" "}
@@ -54,9 +54,6 @@ export const UserInput: React.FC = () => {
           ) : (
             <MicIcon className="cursor-pointer hover:text-gray-500 hover:dark:text-gray-300" />
           )}
-          <span className="hidden sm:block cursor-pointer hover:text-gray-500 hover:dark:text-gray-300">
-            <Search />
-          </span>
         </div>
       </form>
     </div>
