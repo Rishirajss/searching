@@ -1,6 +1,7 @@
 import { UserInput } from "@/components/custom/input";
 import Link from "next/link";
-import { DropdownNavigationMenu } from "@/components/custom/dropdown-menu";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,15 +9,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <section className="flex gap-5 justify-between items-center py-3 sm:pt-2">
         <Link href="/">
           <div className="flex justify-center items-center">
-            <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-red-500 to-green-500 bg-clip-text text-transparent ml-1">
-              iBharat
-            </h1>
+            <Image src="/ibharat.jpg" width={120} height={40} alt="logo" />
           </div>
         </Link>
         <div className="hidden sm:block max-w-[800px] w-full">
           <UserInput />
         </div>
-        <DropdownNavigationMenu />
+        <Button>
+          <Link href="/submiturl">
+            <span className="font-bold">Submit URL</span>
+          </Link>
+        </Button>
       </section>
       <div className="sm:hidden">
         <UserInput />
@@ -25,4 +28,3 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-

@@ -8,7 +8,7 @@ import Spinner from "../spinner";
 import { SubNav } from "./subnav";
 import { PaginationComponent } from "./pagination";
 
-const BASE_URL = "https://beta.api.admin.ibharat.org/search";
+const BASE_URL = "https://beta.api.admin.ibharat.org/search/v2";
 
 export const ResultPage: React.FC = () => {
   const search = useSearchParams();
