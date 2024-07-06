@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import useSWR from "swr";
 import { useRouter, useSearchParams } from "next/navigation";
 import { fetchWithHeaders } from "../../../utils/fetWithHeaders";
@@ -7,8 +8,19 @@ import { RocketIcon } from "@radix-ui/react-icons";
 import Spinner from "../spinner";
 import { SubNav } from "./subnav";
 import { PaginationComponent } from "./pagination";
+import Image from "next/image";
 
 const BASE_URL = "https://beta.api.admin.ibharat.org/search/v2";
+const WIKIPEDIA_API_URL = "https://en.wikipedia.org/api/rest_v1/page/summary/";
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+const truncateText = (text, maxLength) => {
+  if (text?.length > maxLength) {
+    return text.substring(0, maxLength) + "...";
+  }
+  return text;
+};
 
 export const ResultPage: React.FC = () => {
   const search = useSearchParams();
@@ -17,12 +29,18 @@ export const ResultPage: React.FC = () => {
   const page = parseInt(search.get("page") || "1", 10); // getting page for pagination
   const router = useRouter();
 
-  const { data, isLoading } = useSWR(
+  const { data: searchData, isLoading: isSearchLoading } = useSWR(
     `${BASE_URL}/${encodedSearchQuery}/${page}`,
     fetchWithHeaders,
     { revalidateOnFocus: false },
   );
-  console.log(data);
+
+  const { data: wikiData, isLoading: isWikiLoading } = useSWR(
+    encodedSearchQuery ? `${WIKIPEDIA_API_URL}${encodedSearchQuery}` : null,
+    fetcher,
+    { revalidateOnFocus: false },
+  );
+
   const handlePageChange = (newPage: number) => {
     router.push(`/search?q=${encodedSearchQuery}&page=${newPage}`);
   };
@@ -31,14 +49,14 @@ export const ResultPage: React.FC = () => {
     router.push("/search");
   }
 
-  if (isLoading) {
+  if (isSearchLoading || isWikiLoading) {
     return <Spinner />;
   }
 
-  if (!data) {
+  if (!searchData.totalCount) {
     return (
       <div className="flex justify-center items-center h-52">
-        <p className="">UH OH... no results found!.</p>
+        <p>UH OH... no results found!.</p>
       </div>
     );
   }
@@ -49,26 +67,18 @@ export const ResultPage: React.FC = () => {
       <div className="flex flex-col md:flex-row gap-0 sm:gap-2">
         <div className="max-w-screen lg:w-3/4 ">
           <p className="py-2 px-2">
-            About <strong>{data.totalCount}</strong> result for{" "}
-            <strong>`{searchQuery}`</strong> keyword.
+            About <strong>{searchData.totalCount}</strong> result for{" "}
+            <strong>{searchQuery}</strong> keyword.
           </p>
-          {data.records.map((res: any, index: number) => (
+          {searchData.records.map((res: any, index: number) => (
             <div
               key={index}
               className="mb-1.5 bg-gray-300/20 dark:bg-gray-800/10 px-3 py-4 rounded-lg"
             >
               <div className="flex items-center gap-2">
-                {res.metaTags["og:image"] ? (
-                  <img
-                    src={res.metaTags["og:image"]}
-                    alt={res.metaTags.title}
-                    className="ring-1 ring-slate-100/10 rounded-md bg-gray-400/10 dark:bg-gray-700/50 hover:bg-red-400 hover:dark:bg-gray-700/90 p-1 h-5 w-5"
-                  />
-                ) : (
-                  <RocketIcon className="ring-1 ring-slate-100/10 rounded-md bg-gray-400/10 dark:bg-gray-700/50 hover:bg-red-400 hover:dark:bg-gray-700/90 p-1 h-5 w-5" />
-                )}
                 <a
-                  href={res.domain}
+                  href={"https://" + res.domain + "." + res.tld}
+                  target="_blank"
                   className="text-blue-500 text-sm sm:text-base font-medium hover:underline"
                 >
                   {res.metaTags.title}
@@ -77,53 +87,68 @@ export const ResultPage: React.FC = () => {
                   <DotsVerticalIcon />
                 </span>
               </div>
-              <span className="text-xs text-gray-500 hover:underline hover:text-blue-400">
-                {res.domain}
-              </span>
+              <a
+                href={"https://" + res.domain + "." + res.tld}
+                target="_blank"
+                className="text-blue-500 text-sm sm:text-base font-medium"
+              >
+                {"https://" + res.domain + "." + res.tld}
+              </a>
+
               <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                {res.metaTags && res.metaTags.description}
+                {truncateText(res.metaTags?.description, 120)}
               </p>
             </div>
           ))}
         </div>
-        <div className="hidden lg:block md:w-1/4 h-fit p-6 mt-10 bg-gray-300/20 dark:bg-gray-800/10 rounded-md">
-          <h1>HTML</h1>
-          <p>
-            Family of markup languages for displaying information viewable in a
-            web browser
-          </p>
-          <a href="html.spec.whatwg.org" className="text-blue-500">
-            html.spec.whatwg.org
-          </a>
-          <p>
-            HyperText Markup Language or HTML is the standard markup language
-            for documents designed to be displayed in a web browser. It defines
-            the content and structure of web.{" "}
-            <a href="" className="text-blue-500">
-              Wikipedia
-            </a>
-          </p>
-          <table className="table-auto text-sm">
-            <tbody>
-              <tr>
-                <td className="py-2">Filename extension</td>
-                <td className="px-4 py-2">html, htm</td>
-              </tr>
-              <tr>
-                <td className="py-2">Internet media type</td>
-                <td className="px-4 py-2">text/HTML</td>
-              </tr>
-              <tr>
-                <td className="py-2">Type code</td>
-                <td className="px-4 py-2">TEXT</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        {wikiData && (
+          <div className="hidden lg:block md:w-1/4 h-fit border border-1 px-4 py-3 mt-10 bg-gray-300/20 dark:bg-gray-800/10 rounded-md">
+            {wikiData ? (
+              <>
+                {wikiData.thumbnail && wikiData.thumbnail.source && (
+                  <div className="flex justify-center">
+                    <Image
+                      src={wikiData?.thumbnail?.source}
+                      alt={wikiData?.title}
+                      width="150"
+                      height="150"
+                      className="text-center rounded-md"
+                    />
+                  </div>
+                )}
+                <h1 className="text-xl pt-2 border-t sm:mt-4 font-semibold">
+                  {wikiData?.title}
+                </h1>
+                <a
+                  href={wikiData.content_urls?.desktop?.page}
+                  className="text-blue-500 py-3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {wikiData.content_urls?.desktop?.page}
+                </a>
+
+                <p>{truncateText(wikiData.extract, 150)}</p>
+                {wikiData?.content_urls && wikiData.content_urls?.desktop && (
+                  <a
+                    href={wikiData.content_urls?.desktop?.page}
+                    className="text-blue-500"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    More
+                  </a>
+                )}
+              </>
+            ) : (
+              <p>No Wikipedia data found.</p>
+            )}
+          </div>
+        )}
       </div>
       <div className="py-2">
         <PaginationComponent
-          totalPages={data.totalPages}
+          totalPages={searchData.totalPages}
           currentPage={page}
           handlePageChange={handlePageChange}
         />
