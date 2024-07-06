@@ -13,9 +13,9 @@ import Image from "next/image";
 const BASE_URL = "https://beta.api.admin.ibharat.org/search/v2";
 const WIKIPEDIA_API_URL = "https://en.wikipedia.org/api/rest_v1/page/summary/";
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const truncateText = (text, maxLength) => {
+const truncateText = (text: string, maxLength: number) => {
   if (text?.length > maxLength) {
     return text.substring(0, maxLength) + "...";
   }
