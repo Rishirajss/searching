@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 interface TabProps {
   tab: string;
   label: string;
-  icon: React.ReactNode;
 }
 
 const tabs: TabProps[] = [
@@ -56,15 +55,14 @@ export const SubNav = () => {
   return (
     <nav className="w-full overflow-x-auto py-2 px-1 md:px-2 bg-gray-400/20 dark:bg-gray-600/20">
       <ul className="flex items-center gap-2">
-        {tabs.map(({ tab, label, icon }) => (
+        {tabs.map(({ tab, label }) => (
           <li key={tab}>
             <Button
-              variant="ghost bg-none"
-              className={`h-9 px-0.5 mx-1 ${isTabActive(tab) ? "border-b-[3px] border-black bg-none rounded-none" : ""}`}
+              className={`h-9 bg-transparent hover:bg-transparent px-0.5 mx-1 ${isTabActive(tab) ? "border-b-[3px] border-black bg-none rounded-none" : ""}`}
               onClick={() => handleTabClick(tab)}
             >
               <span
-                className={`text-[12px] sm:text-[15px] font-bold ${isTabActive(tab) ? "text-gray-900" : "text-gray-600"}`}
+                className={`text-[12px] sm:text-[15px] hover:text-blue-500 font-bold ${isTabActive(tab) ? "text-gray-900" : "text-gray-600"}`}
               >
                 {label}
               </span>
