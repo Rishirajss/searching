@@ -71,29 +71,19 @@ export const ResultPage: React.FC = () => {
             <strong>{searchQuery}</strong> keyword.
           </p>
           {searchData.records.map((res: any, index: number) => (
-            <div
-              key={index}
-              className="mb-1.5 bg-gray-300/20 dark:bg-gray-800/10 px-3 py-4 rounded-lg"
-            >
+            <div key={index} className="mb-1  px-3 py-2 rounded-lg">
               <div className="flex items-center gap-2">
                 <a
                   href={"https://" + res.domain + "." + res.tld}
                   target="_blank"
-                  className="text-blue-500 text-sm sm:text-base font-medium hover:underline"
+                  className="text-blue-500 text-base sm:text-xl font-medium hover:underline"
                 >
                   {res.metaTags.title}
                 </a>
-                <span>
-                  <DotsVerticalIcon />
-                </span>
               </div>
-              <a
-                href={"https://" + res.domain + "." + res.tld}
-                target="_blank"
-                className="text-blue-500 text-sm sm:text-base font-medium"
-              >
+              <span className="text-green-500 text-sm sm:text-base font-medium">
                 {"https://" + res.domain + "." + res.tld}
-              </a>
+              </span>
 
               <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
                 {truncateText(res.metaTags?.description, 120)}

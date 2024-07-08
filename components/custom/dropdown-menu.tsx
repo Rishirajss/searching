@@ -39,24 +39,12 @@ export function DropdownNavigationMenu() {
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>
           <div className="flex justify-between items-center">
-            <p> My Account</p>
+            <p> Themes</p>
             <ModeToggle />
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            Private Search
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            All Settings
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Themes
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
           <DropdownMenuItem>
             Keyboard shortcuts
             <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
@@ -64,7 +52,6 @@ export function DropdownNavigationMenu() {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>ibharat</DropdownMenuItem>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
             <DropdownMenuPortal>
@@ -76,10 +63,7 @@ export function DropdownNavigationMenu() {
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
-          <DropdownMenuItem>
-            Who We Are
-            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-          </DropdownMenuItem>
+          <DropdownMenuItem>Who We Are</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Privacy Policy</DropdownMenuItem>
@@ -88,4 +72,3 @@ export function DropdownNavigationMenu() {
     </DropdownMenu>
   );
 }
-

@@ -6,6 +6,9 @@ export default function SubmitURLPage() {
       <div className="px-0 sm:px-8 md:px-10 lg:px-28">
         <Header />
       </div>
+      <h1 className="text-2xl sm:text-3xl mt-4 sm:mt-6 md:mt-10 text-center font-semibold">
+        Submit URL to iBharat
+      </h1>
       <div className="flex flex-col justify-center items-center mt-4 sm:mt-6 md:mt-10">
         <SubmitURL />
       </div>
