@@ -11,13 +11,10 @@ export default function FeedbackPage() {
       </div>
       <div className="flex flex-col justify-center items-center mt-4 sm:mt-6 md:mt-10">
         <div className="flex flex-col gap-4 justify-center items-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl">
-            India&apos;s next generations swadeshi search engine!
-          </h1>
-          <p className="text-base py-1">
+          <h1 className="text-2xl sm:text-3xl">
             Drop your query on email or contact us through phone number.
-          </p>
-          <Button variant="secondary" className="">
+          </h1>
+          <Button variant="outline" className="">
             <EnvelopeOpenIcon className="mr-2 h-4 w-4" /> info@ibharat.org
           </Button>
         </div>

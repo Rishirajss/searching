@@ -3,9 +3,15 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen max-w-screen flex-col justify-center gap-10 p-2 sm:p-6 md:p-24 md:py-12">
+    <main className="flex min-h-screen max-w-screen flex-col justify-start md:justify-center gap-10 p-2 sm:p-6 md:p-24 md:py-12 mt-40 sm:mt-auto">
       <section className="flex justify-center">
-        <Image src="/ibharat.jpg" alt="logo" height="200" width="350"></Image>
+        <Image
+          src="/ibharat.jpg"
+          alt="logo"
+          height="200"
+          width="350"
+          className="w-[200px] h-auto md:w-[200px] md:h-[200px]"
+        ></Image>
       </section>
       <section>
         <UserInput />

@@ -41,6 +41,7 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
       paginationItems.push(
         <PaginationItem key="prev">
           <PaginationPrevious
+            className="cursor-pointer"
             onClick={() => handlePageChange(currentPage - 1)}
           />
         </PaginationItem>,
@@ -52,6 +53,7 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
       paginationItems.push(
         <PaginationItem key={i}>
           <PaginationLink
+            className="cursor-pointer"
             onClick={() => handlePageChange(i)}
             isActive={i === currentPage}
           >
@@ -74,7 +76,10 @@ export const PaginationComponent: React.FC<PaginationProps> = ({
     if (currentPage < totalPages) {
       paginationItems.push(
         <PaginationItem key="next">
-          <PaginationNext onClick={() => handlePageChange(currentPage + 1)} />
+          <PaginationNext
+            className="cursor-pointer"
+            onClick={() => handlePageChange(currentPage + 1)}
+          />
         </PaginationItem>,
       );
     }

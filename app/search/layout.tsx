@@ -2,6 +2,7 @@ import { UserInput } from "@/components/custom/input";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { DropdownNavigationMenu } from "@/components/custom/dropdown-menu";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,11 +16,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="hidden sm:block max-w-[800px] w-full">
           <UserInput />
         </div>
-        <Button>
+        <Button className="hidden sm:flex">
           <Link href="/submiturl">
             <span className="font-bold">Submit URL</span>
           </Link>
         </Button>
+        <div className="flex sm:hidden">
+          <DropdownNavigationMenu />
+        </div>
       </section>
       <div className="sm:hidden">
         <UserInput />
