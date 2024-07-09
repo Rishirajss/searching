@@ -48,7 +48,7 @@ const sections = [
   },
 ];
 
-const TermsOfUse = () => {
+const Policies = () => {
   const [activeSection, setActiveSection] = useState<string>("");
 
   const handleScroll = (id: string) => {
@@ -58,9 +58,7 @@ const TermsOfUse = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center mb-8 text-indigo-700">
-        Terms of Use
-      </h1>
+      <h1 className="text-4xl font-bold text-center mb-10">Terms of Use</h1>
       <div className="flex flex-col md:flex-row">
         <nav className="md:w-1/4 mb-8 md:mb-0">
           <ul className="space-y-4 border-r md:mr-4 md:ml-3">
@@ -79,9 +77,9 @@ const TermsOfUse = () => {
             ))}
           </ul>
         </nav>
-        <div className="md:w-3/4 space-y-8">
+        <div className="md:w-3/4 space-y-8 sm:ml-4">
           <section id="privacy">
-            <h2 className="text-3xl font-bold mb-4 text-indigo-600">
+            <h2 className="text-2xl font-semibold mb-4">
               The privacy policy of iBharat
             </h2>
             <p className="mb-4">
@@ -93,7 +91,7 @@ const TermsOfUse = () => {
             </p>
           </section>
           <section id="collection">
-            <h2 className="text-3xl font-bold mb-4 text-indigo-600">
+            <h2 className="text-2xl font-semibold mb-4">
               Collection of Information
             </h2>
             <p className="mb-4">
@@ -107,7 +105,7 @@ const TermsOfUse = () => {
             </ul>
           </section>
           <section id="non-personal">
-            <h2 className="text-3xl font-bold mb-4 text-indigo-600">
+            <h2 className="text-2xl font-semibold mb-4">
               Non-Personally Identifiable Information
             </h2>
             <p className="mb-4">
@@ -128,7 +126,7 @@ const TermsOfUse = () => {
             </p>
           </section>
           <section id="cookies">
-            <h2 className="text-3xl font-bold mb-4 text-indigo-600">
+            <h2 className="text-2xl font-semibold mb-4">
               Internet Browser Cookies
             </h2>
             <p className="mb-4">
@@ -140,7 +138,7 @@ const TermsOfUse = () => {
             </p>
           </section>
           <section id="reasons">
-            <h2 className="text-3xl font-bold mb-4 text-indigo-600">
+            <h2 className="text-2xl font-semibold mb-4">
               Notable Reasons to Collect Data
             </h2>
             <p className="mb-4">
@@ -170,7 +168,7 @@ const TermsOfUse = () => {
             </ul>
           </section>
           <section id="ai">
-            <h2 className="text-3xl font-bold mb-4 text-indigo-600">
+            <h2 className="text-2xl font-semibold mb-4">
               Implementation of Artificial Intelligence
             </h2>
             <p className="mb-4">
@@ -189,9 +187,7 @@ const TermsOfUse = () => {
             </p>
           </section>
           <section id="conclusion">
-            <h2 className="text-3xl font-bold mb-4 text-indigo-600">
-              Be with us
-            </h2>
+            <h2 className="text-2xl font-semibold mb-4">Be with us</h2>
             <p className="mb-4">
               To conclude, iBharat, is perhaps the 1st personalized swadeshi
               search engine to support small-scale Indian start-ups. Hence, be
@@ -206,4 +202,4 @@ const TermsOfUse = () => {
   );
 };
 
-export default TermsOfUse;
+export default Policies;

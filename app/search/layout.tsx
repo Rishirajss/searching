@@ -10,7 +10,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <section className="flex gap-5 justify-between items-center py-3 sm:pt-2">
         <Link href="/">
           <div className="flex justify-center items-center">
-            <Image src="/ibharat.jpg" width={120} height={40} alt="logo" />
+            <Image
+              src="/ibharat.jpg"
+              width={150}
+              height={40}
+              alt="logo"
+              className="w-[120px] sm:w-[150px]"
+            />
           </div>
         </Link>
         <div className="hidden sm:block max-w-[800px] w-full">
