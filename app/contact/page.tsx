@@ -11,7 +11,7 @@ export default function FeedbackPage() {
       </div>
       <div className="flex flex-col justify-center items-center mt-4 sm:mt-6 md:mt-10">
         <div className="flex flex-col gap-4 justify-center items-center">
-          <h1 className="text-2xl sm:text-3xl">
+          <h1 className="text-2xl sm:text-3xl font-semibold text-center my-4">
             Drop your query on email or contact us through phone number.
           </h1>
           <Button variant="outline" className="">
