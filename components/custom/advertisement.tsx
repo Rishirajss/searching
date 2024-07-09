@@ -55,7 +55,7 @@ const plans = [
 const AdvertisementPlanCards = () => {
   return (
     <div className="container mx-auto p-2 md:p-6">
-      <h2 className="text-4xl font-bold text-center mb-8 text-indigo-700">
+      <h2 className="text-4xl font-bold text-center mb-8">
         iBharat Search Engine Ads
       </h2>
       <p className="text-center mb-12 text-gray-600">
@@ -94,10 +94,8 @@ const AdvertisementPlanCards = () => {
               </ul>
             </CardContent>
             <CardFooter className="flex flex-col items-center p-4 bg-gray-50 border-t border-gray-200">
-              <p className="text-xl font-bold mb-4 text-indigo-700">
-                {plan.price}
-              </p>
-              <Button className="w-full bg-indigo-600 text-white hover:bg-indigo-700 transition-colors duration-300">
+              <p className="text-xl font-semibold mb-4">{plan.price}</p>
+              <Button className="w-full text-white transition-colors duration-300">
                 <Link href="/contact">Book Space</Link>
               </Button>
             </CardFooter>

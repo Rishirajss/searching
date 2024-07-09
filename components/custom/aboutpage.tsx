@@ -10,7 +10,7 @@ const AboutPage = () => {
   return (
     <div className="container mx-auto p-2 sm:p-6">
       <div className="p-2 md:p-8">
-        <h1 className="text-4xl font-bold text-center mb-8 text-indigo-600">
+        <h1 className="text-4xl font-bold text-center mb-8">
           About iBharat.org
         </h1>
         <p className="mb-6 text-gray-700 leading-relaxed">
@@ -29,7 +29,7 @@ const AboutPage = () => {
           categorized the search engine for the users to have smooth internet
           research.
         </p>
-        <h2 className="text-3xl font-semibold mb-6 text-indigo-600">
+        <h2 className="text-3xl font-semibold mb-6">
           How does iBharat.org serve the web surfers?
         </h2>
         <p className="mb-6 text-gray-700 leading-relaxed">
@@ -39,44 +39,35 @@ const AboutPage = () => {
         </p>
         <ul className="list-disc list-inside mb-8 space-y-4">
           <li className="flex items-center">
-            <Search className="inline-block mr-2 text-indigo-600" /> All
+            <Search className="inline-block mr-2" /> All
           </li>
           <li className="flex items-center">
-            <VerifiedIcon className="inline-block mr-2 text-indigo-600" />{" "}
-            Swadeshi
+            <VerifiedIcon className="inline-block mr-2" /> Swadeshi
           </li>
           <li className="flex items-center">
-            <ShoppingCart className="inline-block mr-2 text-indigo-600" />{" "}
-            Shopping
+            <ShoppingCart className="inline-block mr-2" /> Shopping
           </li>
           <li className="flex items-center">
-            <NewspaperIcon className="inline-block mr-2 text-indigo-600" /> News
+            <NewspaperIcon className="inline-block mr-2" /> News
           </li>
           <li className="flex items-center">
-            <CheckCircle className="inline-block mr-2 text-indigo-600" />{" "}
-            Verified
+            <CheckCircle className="inline-block mr-2" /> Verified
           </li>
         </ul>
         <div className="mb-8">
-          <h3 className="text-xl font-semibold mb-4 text-indigo-600">
-            1. All:
-          </h3>
+          <h3 className="text-xl font-semibold mb-4">1. All:</h3>
           <p className="mb-4 text-gray-700 leading-relaxed">
             In this searching option, you can get any type of searching
             experience irrespective of national and international.
           </p>
-          <h3 className="text-xl font-semibold mb-4 text-indigo-600">
-            2. Swadeshi:
-          </h3>
+          <h3 className="text-xl font-semibold mb-4">2. Swadeshi:</h3>
           <p className="mb-4 text-gray-700 leading-relaxed">
             This is a personalized searching option to receive results relating
             to Indian companies, start-ups, commercial sectors, and small
             businesses. We have prepared this searching option to support the
             Indians.
           </p>
-          <h3 className="text-xl font-semibold mb-4 text-indigo-600">
-            3. Shopping:
-          </h3>
+          <h3 className="text-xl font-semibold mb-4">3. Shopping:</h3>
           <p className="mb-4 text-gray-700 leading-relaxed">
             This is our sponsored searching option, where you are directed
             straight to the eCommerce sites for shopping. We know that people
@@ -84,16 +75,12 @@ const AboutPage = () => {
             stores in the future. Keeping that in mind, we have focused on this
             searching category.
           </p>
-          <h3 className="text-xl font-semibold mb-4 text-indigo-600">
-            4. News:
-          </h3>
+          <h3 className="text-xl font-semibold mb-4">4. News:</h3>
           <p className="mb-4 text-gray-700 leading-relaxed">
             In this search category, you can receive results related to news and
             current affairs.
           </p>
-          <h3 className="text-xl font-semibold mb-4 text-indigo-600">
-            5. Verified:
-          </h3>
+          <h3 className="text-xl font-semibold mb-4">5. Verified:</h3>
           <p className="text-gray-700 leading-relaxed">
             This is perhaps the best category of all in iBharat.org. You can use
             this verified category to skip the fraudulent activities. We only
@@ -104,7 +91,7 @@ const AboutPage = () => {
             engine category.
           </p>
         </div>
-        <h2 className="text-3xl font-semibold mb-6 text-indigo-600">
+        <h2 className="text-3xl font-semibold mb-6">
           Why choose our iBharat.org?
         </h2>
         <p className="mb-6 text-gray-700 leading-relaxed">

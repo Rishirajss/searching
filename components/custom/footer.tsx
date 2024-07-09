@@ -4,20 +4,20 @@ import Image from "next/image";
 const Footer = () => {
   const generalLinks = [
     { label: "Feedback", href: "feedback" },
-    { label: "Advertising", href: "#" },
+    { label: "Advertising", href: "advertisement" },
     { label: "Submit URL", href: "submiturl" },
   ];
 
   const companyLinks = [
-    { label: "About Us", href: "#" },
+    { label: "About Us", href: "about" },
     { label: "Contact Us", href: "contact" },
     { label: "Blog", href: "#" },
   ];
 
   const legalLinks = [
-    { label: "Terms of Use", href: "#" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Disclaimer", href: "#" },
+    { label: "Terms of Use", href: "termsofuse" },
+    { label: "Privacy Policy", href: "policies" },
+    { label: "Disclaimer", href: "disclaimer" },
   ];
 
   const followUsLinks = [
@@ -31,9 +31,13 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-0 md:gap-8">
         <div className="flex items-center justify-center  lg:col-span-2">
           <div className="mb-8">
-            <h3 className="text-2xl md:text-4xl text-center font-bold mb-4 bg-gradient-to-r from-red-500 to-green-500 bg-clip-text text-transparent">
-              iBharat
-            </h3>
+            <Image
+              src="/ibharat.jpg"
+              alt="iBharat"
+              width={100}
+              height={100}
+              className="w-[90px] sm:w-[140px] mb-4"
+            />
             <div className="flex gap-2">
               <div className="mb-4">
                 <Link href="#">
