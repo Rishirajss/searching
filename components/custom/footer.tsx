@@ -31,13 +31,15 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-0 md:gap-8">
         <div className="flex items-center justify-center  lg:col-span-2">
           <div className="mb-8">
-            <Image
-              src="/ibharat.jpg"
-              alt="iBharat"
-              width={100}
-              height={100}
-              className="w-[90px] sm:w-[140px] mb-4"
-            />
+            <div className="flex items-center justify-center">
+              <Image
+                src="/ibharat.jpg"
+                alt="iBharat"
+                width={100}
+                height={100}
+                className="w-[90px] sm:w-[150px] mb-4"
+              />
+            </div>
             <div className="flex gap-2">
               <div className="mb-4">
                 <Link href="#">
