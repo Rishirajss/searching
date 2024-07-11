@@ -53,7 +53,7 @@ export const ResultPage: React.FC = () => {
     return <Spinner />;
   }
 
-  if (!searchData.totalCount) {
+  if (!searchData?.totalCount) {
     return (
       <div className="flex justify-center items-center h-52">
         <p>UH OH... no results found!.</p>
@@ -64,7 +64,7 @@ export const ResultPage: React.FC = () => {
   return (
     <>
       <SubNav />
-      <div className="flex flex-col md:flex-row gap-0 sm:gap-2">
+      <div className="flex flex-col md:flex-row gap-0 sm:gap-2 px-2 sm:px-6 md:px-20">
         <div className="max-w-screen lg:w-3/4 ">
           <p className="py-2 px-2">
             About <strong>{searchData.totalCount}</strong> result for{" "}

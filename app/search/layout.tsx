@@ -6,8 +6,8 @@ import { DropdownNavigationMenu } from "@/components/custom/dropdown-menu";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col gap-2 py-0 md:py-6 px-2 sm:px-6 md:px-20">
-      <section className="flex gap-5 justify-between items-center py-3 sm:pt-2">
+    <div className="flex flex-col gap-2 py-0 md:py-6">
+      <section className="flex gap-5 justify-between items-center py-3 sm:pt-2 px-2 sm:px-6 md:px-20">
         <Link href="/">
           <div className="flex justify-center items-center">
             <Image
@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="hidden sm:block max-w-[800px] w-full">
           <UserInput />
         </div>
-        <Button className="hidden sm:flex">
+        <Button className="hidden sm:flex bg-blue-500">
           <Link href="/submiturl">
             <span className="font-bold">Submit URL</span>
           </Link>

@@ -53,12 +53,12 @@ export const SubNav = () => {
   const isTabActive = (tab: string) => tab === activeTab;
 
   return (
-    <nav className="w-full overflow-x-auto py-2 px-1 md:px-2 bg-gray-400/20 dark:bg-gray-600/20">
+    <nav className="w-full overflow-x-auto py-2 bg-gray-400/20 dark:bg-gray-600/20 px-2 sm:px-6 md:px-20">
       <ul className="flex items-center gap-2">
         {tabs.map(({ tab, label }) => (
           <li key={tab}>
             <Button
-              className={`h-9 bg-transparent hover:bg-transparent px-0.5 mx-1 ${isTabActive(tab) ? "border-b-[3px] border-black bg-none rounded-none" : ""}`}
+              className={`h-9 bg-transparent hover:bg-transparent px-0.5 mx-1 ${isTabActive(tab) ? "border-b-[3px] border-blue-500 bg-none rounded-none" : ""}`}
               onClick={() => handleTabClick(tab)}
             >
               <span

@@ -10,7 +10,7 @@ export default function Home() {
           alt="logo"
           height="200"
           width="350"
-          className="w-[160px] h-auto md:w-[220px] md:h-auto"
+          className="w-[160px] h-auto md:w-[280px] md:h-auto"
         ></Image>
       </section>
       <section>
