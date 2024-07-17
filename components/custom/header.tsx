@@ -22,7 +22,7 @@ export default function Header() {
         <div className="hidden sm:block max-w-[800px] w-full">
           <UserInput />
         </div>
-        <Button className="hidden sm:flex">
+        <Button className="hidden sm:flex bg-blue-500 hover:bg-blue-600">
           <Link href="/submiturl">
             <span className="font-bold">Submit URL</span>
           </Link>

@@ -11,7 +11,7 @@ const Footer = () => {
   const companyLinks = [
     { label: "About Us", href: "about" },
     { label: "Contact Us", href: "contact" },
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "https://blog.ibharat.org" },
   ];
 
   const legalLinks = [
@@ -21,9 +21,9 @@ const Footer = () => {
   ];
 
   const followUsLinks = [
-    { label: "Koo", href: "#" },
-    { label: "Twitter", href: "#" },
-    { label: "More Links", href: "#" },
+    { label: "Koo", href: "https://www.kooapp.com/profile/ibharatorg" },
+    { label: "Twitter", href: "https://twitter.com/ibharatorg" },
+    { label: "More Links", href: "followus" },
   ];
 
   return (
@@ -71,6 +71,7 @@ const Footer = () => {
               <Link
                 key={link.label}
                 href={link.href}
+                target="_blank"
                 className="block mb-2 hover:underline dark:text-white text-gray-800"
               >
                 {link.label}
@@ -83,6 +84,7 @@ const Footer = () => {
               <Link
                 key={link.label}
                 href={link.href}
+                target="_blank"
                 className="block mb-2 hover:underline dark:text-white text-gray-800"
               >
                 {link.label}
@@ -95,6 +97,7 @@ const Footer = () => {
               <Link
                 key={link.label}
                 href={link.href}
+                target="_blank"
                 className="block mb-2 hover:underline dark:text-white text-gray-800"
               >
                 {link.label}
@@ -107,6 +110,7 @@ const Footer = () => {
               <Link
                 key={link.label}
                 href={link.href}
+                target="_blank"
                 className="block mb-2 hover:underline dark:text-white text-gray-800"
               >
                 {link.label}
