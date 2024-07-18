@@ -70,26 +70,29 @@ export const ResultPage: React.FC = () => {
             About <strong>{searchData.totalCount}</strong> result for{" "}
             <strong>{searchQuery}</strong> keyword.
           </p>
-          {searchData.records.map((res: any, index: number) => (
-            <div key={index} className="mb-1  px-3 py-2 rounded-lg">
-              <div className="flex items-center gap-2">
-                <a
-                  href={"https://" + res.domain + "." + res.tld}
-                  target="_blank"
-                  className="text-blue-500 text-base sm:text-xl font-medium hover:underline"
-                >
-                  {res.metaTags.title}
-                </a>
-              </div>
-              <span className="text-green-500 text-sm sm:text-base font-medium">
-                {"https://" + res.domain + "." + res.tld}
-              </span>
+          {searchData.records.map(
+            (res: any, index: number) =>
+              res.metaTags?.title && (
+                <div key={index} className="mb-1  px-3 py-2 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={"https://" + res.domain + "." + res.tld}
+                      target="_blank"
+                      className="text-blue-500 text-base sm:text-xl font-medium hover:underline"
+                    >
+                      {truncateText(res.metaTags?.title, 100)}
+                    </a>
+                  </div>
+                  <span className="text-green-500 text-sm sm:text-base font-medium">
+                    {"https://" + res.domain + "." + res.tld}
+                  </span>
 
-              <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                {truncateText(res.metaTags?.description, 120)}
-              </p>
-            </div>
-          ))}
+                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                    {truncateText(res.metaTags?.description, 120)}
+                  </p>
+                </div>
+              ),
+          )}
         </div>
         {wikiData && (
           <div className="hidden lg:block md:w-1/4 h-fit border border-1 px-4 py-3 mt-10 bg-gray-300/20 dark:bg-gray-800/10 rounded-md">
@@ -111,7 +114,7 @@ export const ResultPage: React.FC = () => {
                 </h1>
                 <a
                   href={wikiData.content_urls?.desktop?.page}
-                  className="text-blue-500 py-3"
+                  className="text-blue-500 py-3 text-xs block"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

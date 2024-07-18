@@ -14,7 +14,7 @@ export default function Home() {
         ></Image>
       </section>
       <section>
-        <UserInput />
+        <UserInput btnText="Go" />
       </section>
       <p className="text-center text-xl">भारत का अपना स्वदेशी सर्च इंजन™</p>
     </main>
