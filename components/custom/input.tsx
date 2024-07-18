@@ -38,7 +38,7 @@ export const UserInput: React.FC<BtnProps> = ({ btnText }) => {
         <Input
           type="text"
           placeholder="What are you looking for?"
-          className="h-10 px-3 pr-9 sm:px-4 text-base"
+          className="h-10 px-3 pr-9 sm:px-4 text-sm sm:text-base"
           value={inputValue || ""}
           onChange={(e) => setInputValue(e.target.value)}
           onFocus={() => setIsFocused(true)}

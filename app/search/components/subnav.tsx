@@ -53,7 +53,7 @@ export const SubNav = () => {
   const isTabActive = (tab: string) => tab === activeTab;
 
   return (
-    <nav className="w-full overflow-x-auto py-2 bg-gray-400/20 dark:bg-gray-600/20 px-2 sm:px-6 md:px-20">
+    <nav className="no-scrollbar w-full overflow-x-auto py-2 bg-gray-400/20 dark:bg-gray-600/20 px-2 sm:px-6 md:px-20">
       <ul className="flex items-center gap-2">
         {tabs.map(({ tab, label }) => (
           <li key={tab}>
