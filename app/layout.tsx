@@ -13,8 +13,57 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "ibharat",
-  description: "india's search engine",
+  title: {
+    template: "iBharat.org | Indian Search Engine",
+    default: "iBharat.org | Indian Search Engine",
+    absolute: "iBharat.org | Indian Search Engine",
+  },
+  description:
+    "iBharat.org is a search engine for Indian websites. It is a platform for Indian websites to get discovered by Indian users.",
+  category: "search engine",
+  metadataBase: new URL("https://ibharat.org/"),
+  openGraph: {
+    type: "website",
+    title: "iBharat.org | Indian Search Engine",
+    emails: "+91-9676451618",
+    description:
+      "iBharat.org is a search engine for Indian websites. It is a platform for Indian websites to get discovered by Indian users.",
+    countryName: "India",
+    siteName: "iBharat.org",
+    url: "https://ibharat.org/",
+    phoneNumbers: "+91-9676451618",
+    locale: "en_IN",
+    images: "https://ibharat.org/ibharat.png",
+  },
+  authors: [{ name: "iBharat.org" }],
+  keywords: [
+    "iBharat",
+    "iBharat.org",
+    "Indian Search Engine",
+    "Search Engine",
+    "Indian Websites",
+    "Indian Users",
+    "India",
+  ],
+  applicationName: "iBharat.org",
+  creator: "iBharat.org",
+  publisher: "iBharat.org",
+  icons: {
+    icon: "/ibharat.png",
+    shortcut: "/favicon.ico",
+  },
+  appleWebApp: {
+    title: "iBharat.org",
+    startupImage: "https://ibharat.org/",
+  },
+  generator: "iBharat.org",
+  twitter: {
+    title: "iBharat.org | Indian Search Engine",
+    creator: "iBharat.org",
+    creatorId: "ibharat.org",
+    site: "iBharat.org",
+    images: "https://ibharat.org/ibharat.png",
+  },
 };
 
 export default function RootLayout({
