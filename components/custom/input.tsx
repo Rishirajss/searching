@@ -60,7 +60,7 @@ export const UserInput: React.FC<BtnProps> = ({ btnText }) => {
             ) : (
               <MicIcon className="cursor-pointer hover:text-gray-500 hover:dark:text-gray-300" />
             )}
-            <Button className="h-10 ml-1 font-semibold rounded-s">
+            <Button className="h-10 ml-1 font-semibold rounded-none rounded-r-md">
               {btnText ? btnText : "Go"}
             </Button>
           </div>{" "}
