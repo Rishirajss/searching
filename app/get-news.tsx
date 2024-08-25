@@ -3,7 +3,6 @@ import NewsGrid from "@/components/custom/news-list";
 async function getNewsItems() {
   const url = process.env.NEXT_PUBLIC_NEWS_API_URL || "";
   const res = await fetch(url.toString());
-  console.log(res);
   if (!res.ok) {
     throw new Error("Failed to fetch news items");
   }
