@@ -16,4 +16,3 @@ export interface NewsItem {
   keywords: string;
   image_url: string;
 }
-
