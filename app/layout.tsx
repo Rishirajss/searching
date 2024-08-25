@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: "https://ibharat.org/",
     phoneNumbers: "+91-9676451618",
     locale: "en_IN",
-    images: "https://ibharat.org/ibharat.png",
+    images: "https://ibharat.org/opengraph.jpg",
   },
   authors: [{ name: "iBharat.org" }],
   keywords: [
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   creator: "iBharat.org",
   publisher: "iBharat.org",
   icons: {
-    icon: "/ibharat.png",
+    icon: "/favicon.ico",
     shortcut: "/favicon.ico",
   },
   appleWebApp: {
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     creator: "iBharat.org",
     creatorId: "ibharat.org",
     site: "iBharat.org",
-    images: "https://ibharat.org/ibharat.png",
+    images: "https://ibharat.org/opengraph.jpg",
   },
 };
 
