@@ -12,7 +12,7 @@ const ScrollDownButton = () => {
   return (
     <button
       onClick={scrollDown}
-      className="fixed bottom-8 left-1/2 transform -translate-x-1/2 
+      className="fixed bottom-40 sm:bottom-14 left-1/2 transform -translate-x-1/2 
                  bg-white bg-opacity-20 backdrop-blur-sm 
                  rounded-full p-3 shadow-lg
                  transition-all duration-500 ease-in-out
