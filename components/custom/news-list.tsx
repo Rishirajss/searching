@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import {
   Card,
@@ -6,6 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
+import { Share2Icon } from "lucide-react";
 
 interface NewsItem {
   _id: string;
@@ -20,6 +23,21 @@ interface NewsGridProps {
 }
 
 export default function NewsGrid({ newsItems }: NewsGridProps) {
+  const handleShare = (item: NewsItem) => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: item.title,
+          text: `Check out this article from ${item.publication_name}: ${item.title}`,
+          url: `https://yourwebsite.com/article/${item._id}?ref=yourReferenceId`,
+        })
+        .then(() => console.log("Successful share"))
+        .catch((error) => console.log("Error sharing", error));
+    } else {
+      alert("Sharing is not supported in this browser.");
+    }
+  };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
       {newsItems.map((item) => (
@@ -44,14 +62,23 @@ export default function NewsGrid({ newsItems }: NewsGridProps) {
             <span className="text-sm text-gray-500">
               Source: {item.publication_name}
             </span>
-            <a
-              href={item.loc}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-blue-500 hover:underline"
-            >
-              Read more
-            </a>
+            <div className="flex gap-2 items-center">
+              <a
+                href={item.loc}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-500 underline hover:underline"
+              >
+                Read more
+              </a>
+
+              <button
+                onClick={() => handleShare(item)}
+                className="text-sm text-blue-500 border p-1 rounded-full hover:underline"
+              >
+                <Share2Icon size={16} />
+              </button>
+            </div>
           </CardFooter>
         </Card>
       ))}
