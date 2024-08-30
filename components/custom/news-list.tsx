@@ -25,19 +25,9 @@ interface NewsGridProps {
 }
 
 export default function NewsGrid({ newsItems }: NewsGridProps) {
-  // State to store the current origin (URL)
-  const [origin, setOrigin] = useState("");
-
-  // Use useEffect to set the origin on client side
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setOrigin(window.location.origin);
-    }
-  }, []);
-
   const handleShare = (item: NewsItem) => {
-    const reference = "ibharat"; // Reference for tracking
-    const shareUrl = `${origin}/article/${item._id}?ref=${reference}`;
+    const reference = "ibharat.org"; // Reference for tracking
+    const shareUrl = `${item.loc}?ref=${reference}`;
 
     if (navigator.share) {
       navigator
@@ -67,12 +57,9 @@ export default function NewsGrid({ newsItems }: NewsGridProps) {
           />
           <meta
             property="og:image"
-            content={item.image_url || "https://ibharat.org/opengraph.jpg"}
+            content="https://ibharat.org/opengraph.jpg"
           />
-          <meta
-            property="og:url"
-            content={`${origin}/article/${item._id}?ref=ibharat`}
-          />
+          <meta property="og:url" content={`${item.loc}?ref=ibharat`} />
           <meta property="og:type" content="article" />
           <meta property="og:site_name" content="iBharat.org" />
           {/* Additional Tags for Twitter */}
@@ -83,7 +70,7 @@ export default function NewsGrid({ newsItems }: NewsGridProps) {
           />
           <meta
             name="twitter:image"
-            content={item.image_url || "https://ibharat.org/opengraph.jpg"}
+            content="https://ibharat.org/opengraph.jpg"
           />
         </Head>
       ))}
