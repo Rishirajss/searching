@@ -106,9 +106,8 @@ export const UserInput: React.FC<BtnProps> = ({ btnText }) => {
 
     recognition.onresult = (event: SpeechRecognitionEvent) => {
       const transcript = event.results[0][0].transcript;
-      setInputValue(transcript);
-      setIsListening(false);
-
+      const encodedSearchQuery = encodeURI(transcript);
+      router.push(`/search?q=${encodedSearchQuery}`);
       setInputValue(transcript);
       setIsListening(false);
     };
