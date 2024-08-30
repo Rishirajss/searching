@@ -12,6 +12,33 @@ body {
   font-family: var(--font-poppins);
 }
 
+@keyframes wavy {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-wavy {
+  animation: wavy 1s ease-in-out infinite;
+}
+
+.blur-sm {
+  filter: blur(4px); /* Adjust blur intensity */
+}
+
+.bg-gradient-to-b {
+  background: linear-gradient(
+    to bottom,
+    #3b82f6,
+    #1e3a8a
+  ); /* Smooth color transition for wavy effect */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
