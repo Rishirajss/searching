@@ -1,126 +1,233 @@
-import Link from "next/link";
+"use client";
+import React, { useState, ChangeEvent } from "react";
 import Image from "next/image";
+import { GlobeIcon } from "lucide-react";
+import {
+  FaFacebook,
+  FaSquareInstagram,
+  FaSquareThreads,
+  FaTwitter,
+  FaLinkedin,
+  FaYoutube,
+  FaPinterest,
+} from "react-icons/fa6";
 
-const Footer = () => {
-  const generalLinks = [
-    { label: "Feedback", href: "feedback" },
-    { label: "Advertising", href: "advertisement" },
-    { label: "Submit URL", href: "submiturl" },
-  ];
+interface DropdownProps {
+  options: { value: string; label: string }[];
+  value: string;
+  onChange: (value: string) => void;
+  icon?: string;
+}
 
-  const companyLinks = [
-    { label: "About Us", href: "about" },
-    { label: "Contact Us", href: "contact" },
-    { label: "Blog", href: "https://blog.ibharat.org" },
-  ];
+interface Link {
+  label: string;
+  href: string;
+}
 
-  const legalLinks = [
-    { label: "Terms of Use", href: "termsofuse" },
-    { label: "Privacy Policy", href: "policies" },
-    { label: "Disclaimer", href: "disclaimer" },
-  ];
+interface Content {
+  [key: string]: {
+    title: string;
+    links: Link[];
+  };
+}
 
-  const followUsLinks = [
-    { label: "Koo", href: "https://www.kooapp.com/profile/ibharatorg" },
-    { label: "Twitter", href: "https://twitter.com/ibharatorg" },
-    { label: "More Links", href: "followus" },
+interface LanguageContent {
+  [key: string]: Content;
+}
+
+const Footer: React.FC = () => {
+  const [language, setLanguage] = useState<string>("english");
+
+  const content: LanguageContent = {
+    english: {
+      aboutIBharat: {
+        title: "ABOUT IBHARAT",
+        links: [
+          { label: "Who We Are", href: "/about" },
+          { label: "Blog", href: "https://blog.ibharat.org" },
+          { label: "Work With Us", href: "/careers" },
+          { label: "Investor Relations", href: "/investor-relations" },
+          { label: "Report Fraud", href: "/report-fraud" },
+          { label: "Contact Us", href: "/contact" },
+        ],
+      },
+      ibharatverse: {
+        title: "IBHARATVERSE",
+        links: [
+          { label: "IBharat", href: "/ibharat" },
+          { label: "Feeding India", href: "/feeding-india" },
+          { label: "IBharat Live", href: "/ibharat-live" },
+          { label: "Weather Union", href: "/weather-union" },
+        ],
+      },
+      forUsers: {
+        title: "FOR USERS",
+        links: [
+          { label: "Privacy", href: "/policies" },
+          { label: "Security", href: "/security" },
+          { label: "Terms", href: "/termsofuse" },
+          { label: "Sitemap", href: "/sitemap" },
+          { label: "Submit URL", href: "/submit-url" },
+        ],
+      },
+    },
+    hindi: {
+      aboutIBharat: {
+        title: "IBHARAT के बारे में",
+        links: [
+          { label: "हम कौन हैं", href: "/about" },
+          { label: "ब्लॉग", href: "/blog" },
+          { label: "हमारे साथ काम करें", href: "/careers" },
+          { label: "निवेशक संबंध", href: "/investor-relations" },
+          { label: "धोखाधड़ी की रिपोर्ट करें", href: "/report-fraud" },
+          { label: "संपर्क करें", href: "/contact" },
+        ],
+      },
+      ibharatverse: {
+        title: "IBHARATVERSE",
+        links: [
+          { label: "IBharat", href: "/ibharat" },
+          { label: "फीडिंग इंडिया", href: "/feeding-india" },
+          { label: "IBharat लाइव", href: "/ibharat-live" },
+          { label: "वेदर यूनियन", href: "/weather-union" },
+        ],
+      },
+      forUsers: {
+        title: "उपयोगकर्ताओं के लिए",
+        links: [
+          { label: "गोपनीयता", href: "/policies" },
+          { label: "सुरक्षा", href: "/security" },
+          { label: "शर्तें", href: "/terms" },
+          { label: "साइटमैप", href: "/sitemap" },
+        ],
+      },
+    },
+  };
+
+  const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setLanguage(e.target.value);
+  };
+
+  const currentContent = content[language];
+
+  const socialLinks = [
+    {
+      name: "Facebook",
+      href: "https://facebook.com/ibharatorg",
+      icon: <FaFacebook size={25} />,
+    },
+    {
+      name: "Instagram",
+      href: "https://instagram.com/ibharatorg",
+      icon: <FaSquareInstagram size={25} />,
+    },
+    {
+      name: "Threads",
+      href: "https://threads.ibharat.org",
+      icon: <FaSquareThreads size={25} />,
+    },
+    {
+      name: "Twitter",
+      href: "https://twitter.com/ibharatorg",
+      icon: <FaTwitter size={25} />,
+    },
+    {
+      name: "Linkedin",
+      href: "https://linkedin.com/company/ibharatorg",
+      icon: <FaLinkedin size={25} />,
+    },
+    {
+      name: "Youtube",
+      href: "https://youtube.com/@ibharatorg",
+      icon: <FaYoutube size={25} />,
+    },
+    {
+      name: "Pinterest",
+      href: "https://pinterest.com/ibharatorg",
+      icon: <FaPinterest size={25} />,
+    },
   ];
 
   return (
-    <footer className="border-t border-gray-500/30 py-8">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-0 md:gap-8">
-        <div className="flex items-center justify-center  lg:col-span-2">
-          <div className="mb-8">
-            <div className="flex items-center justify-center">
+    <footer className="bg-gray-100 py-8 text-gray-600">
+      <div className="container mx-auto px-4 md:px-14 lg:px-20">
+        <div className="flex flex-wrap justify-between mb-8">
+          <div className="w-full flex flex-col mb-5 sm:mb-0 sm:flex-row justify-between md:4 md:mb-10">
+            <Image
+              src="/ibharat.jpg"
+              alt="IBharat"
+              width={150}
+              height={50}
+              className="mb-4"
+            />
+            <div className="flex space-x-2">
+              <div className="flex items-center justify-between gap-0.5 h-10 px-1 bg-white rounded-md border border-gray-300">
+                <Image src="/india.png" alt="india" width={25} height={20} />
+                <select className="w-full focus:outline-none bg-transparent focus:ring-indigo-500 focus:border-indigo-500">
+                  <option value="india">India</option>
+                </select>
+              </div>
+              <div className="flex items-center justify-center gap-0.5 h-10 px-1 bg-white rounded-md border border-gray-300">
+                <GlobeIcon size={25} />
+                <select
+                  value={language}
+                  onChange={handleLanguageChange}
+                  className="w-full bg-transparent focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                >
+                  <option value="english">English</option>
+                  <option value="hindi">हिंदी</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          {Object.entries(currentContent).map(([key, section]) => (
+            <div key={key} className="w-full sm:w-1/2 md:w-1/4 lg:w-1/5 mb-6">
+              <h3 className="font-bold mb-4">{section.title}</h3>
+              <ul>
+                {section.links.map((link) => (
+                  <li key={link.label} className="mb-2">
+                    <a href={link.href} className="hover:underline">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div className="w-full flex flex-col sm:items-center sm:w-1/2 md:w-1/4 lg:w-1/5 sm:mb-6">
+            <h3 className="font-bold mb-4">SOCIAL LINKS</h3>
+            <div className="flex space-x-2 mb-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  className="text-blue-800 hover:text-blue-900"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+            <div className="flex items-center gap-2 space-y-2">
               <Image
-                src="/ibharat.jpg"
-                alt="iBharat"
-                width={100}
-                height={100}
-                className="w-[90px] sm:w-[150px] mb-4"
+                src="/app-store.png"
+                alt="Download on App Store"
+                className="w-[130px] h-auto sm:h-[42px] sm: mt-1.5 sm:w-[150px]"
+                width={120}
+                height={50}
+              />
+              <Image
+                src="/google-play.png"
+                className="w-[130px] h-auto sm:w-[150px]"
+                alt="Get it on Google Play"
+                width={120}
+                height={50}
               />
             </div>
-            <div className="flex gap-2">
-              <div className="mb-4">
-                <Link href="#">
-                  <Image
-                    src="/google-play.png"
-                    alt="Download on Google Play"
-                    width={100}
-                    height={40}
-                  />
-                </Link>
-              </div>
-              <div>
-                <Link href="#">
-                  <Image
-                    src="/app-store.png"
-                    alt="Download on App Store"
-                    width={100}
-                    height={40}
-                  />
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
-        <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center place-content-center">
-          <div>
-            <h3 className="text-lg font-bold mb-4">GENERAL</h3>
-            {generalLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                className="block mb-2 hover:underline dark:text-white text-gray-800"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-          <div>
-            <h3 className="text-lg font-bold mb-4">COMPANY</h3>
-            {companyLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                className="block mb-2 hover:underline dark:text-white text-gray-800"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-          <div>
-            <h3 className="text-lg font-bold mb-4">LEGAL</h3>
-            {legalLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                className="block mb-2 hover:underline dark:text-white text-gray-800"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-          <div>
-            <h3 className="text-lg font-bold mb-4">FOLLOW US</h3>
-            {followUsLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                className="block mb-2 hover:underline dark:text-white text-gray-800"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+        <div className="border-t border-gray-300 pt-8 text-center text-sm">
+          <p>© 2024 iBharat.org. All rights reserved.</p>
         </div>
-      </div>
-      <div className="text-center mt-8">
-        <p className="text-sm">© 2024 iBharat.org, Made in India.</p>
       </div>
     </footer>
   );
