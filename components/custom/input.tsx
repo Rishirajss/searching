@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { MicIcon, SearchX } from "lucide-react";
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 
 interface BtnProps {
@@ -72,6 +72,14 @@ export const UserInput: React.FC<BtnProps> = ({ btnText }) => {
   );
   const [isListening, setIsListening] = useState<boolean>(false);
   const router = useRouter();
+
+  const inputRef = useRef<HTMLInputElement>(null); // Reference to the input element
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -146,6 +154,7 @@ export const UserInput: React.FC<BtnProps> = ({ btnText }) => {
         className="relative max-w-3xl w-full flex flex-col items-center gap-4 sm:gap-10"
       >
         <Input
+          ref={inputRef}
           type="text"
           placeholder="What are you looking for?"
           className="h-10 px-3 pr-9 sm:px-4 text-sm sm:text-base"

@@ -90,7 +90,7 @@ export default function NewsGrid({ newsItems }: NewsGridProps) {
                 />
               </CardHeader>
               <CardContent className="flex-grow">
-                <CardTitle className="text-lg font-semibold mb-2 line-clamp-2">
+                <CardTitle className="text-lg font-semibold my-2 line-clamp-2">
                   {item.title}
                 </CardTitle>
               </CardContent>
