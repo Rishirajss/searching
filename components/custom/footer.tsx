@@ -44,7 +44,6 @@ const Footer: React.FC = () => {
         title: "ABOUT IBHARAT",
         links: [
           { label: "Who We Are", href: "/about" },
-          { label: "Blog", href: "https://blog.ibharat.org" },
           { label: "Work With Us", href: "/careers" },
           { label: "Investor Relations", href: "/investor-relations" },
           { label: "Report Fraud", href: "/report-fraud" },
@@ -55,9 +54,7 @@ const Footer: React.FC = () => {
         title: "IBHARATVERSE",
         links: [
           { label: "IBharat", href: "/ibharat" },
-          { label: "Feeding India", href: "/feeding-india" },
-          { label: "IBharat Live", href: "/ibharat-live" },
-          { label: "Weather Union", href: "/weather-union" },
+          { label: "Blog", href: "https://blog.ibharat.org" },
         ],
       },
       forUsers: {
@@ -73,7 +70,7 @@ const Footer: React.FC = () => {
     },
     hindi: {
       aboutIBharat: {
-        title: "IBHARAT के बारे में",
+        title: "iBHARAT के बारे में",
         links: [
           { label: "हम कौन हैं", href: "/about" },
           { label: "ब्लॉग", href: "/blog" },
@@ -84,12 +81,10 @@ const Footer: React.FC = () => {
         ],
       },
       ibharatverse: {
-        title: "IBHARATVERSE",
+        title: "iBHARATVERSE",
         links: [
-          { label: "IBharat", href: "/ibharat" },
-          { label: "फीडिंग इंडिया", href: "/feeding-india" },
-          { label: "IBharat लाइव", href: "/ibharat-live" },
-          { label: "वेदर यूनियन", href: "/weather-union" },
+          { label: "iBharat", href: "/ibharat" },
+          { label: "ब्लॉग", href: "https://blog.ibharat.org" },
         ],
       },
       forUsers: {
@@ -154,7 +149,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-wrap justify-between mb-8">
           <div className="w-full flex flex-col mb-5 sm:mb-0 sm:flex-row justify-between md:4 md:mb-10">
             <Image
-              src="/ibharat.jpg"
+              src="/ibharat.png"
               alt="IBharat"
               width={150}
               height={50}
@@ -201,7 +196,7 @@ const Footer: React.FC = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-blue-800 hover:text-blue-900"
+                  className="text-blue-600 hover:text-blue-700"
                 >
                   {social.icon}
                 </a>
@@ -211,7 +206,7 @@ const Footer: React.FC = () => {
               <Image
                 src="/app-store.png"
                 alt="Download on App Store"
-                className="w-[130px] h-auto sm:h-[42px] sm: mt-1.5 sm:w-[150px]"
+                className="w-[140px] h-auto sm:h-[41px] sm: mt-[9px] sm:w-[150px]"
                 width={120}
                 height={50}
               />
