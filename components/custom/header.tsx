@@ -11,7 +11,7 @@ export default function Header() {
           <Link href="/">
             <div className="flex justify-center items-center">
               <Image
-                src="/ibharat.jpg"
+                src="/ibharat.png"
                 width={120}
                 height={40}
                 alt="logo"
