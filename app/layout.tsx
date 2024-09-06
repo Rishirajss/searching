@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/custom/theme-provider";
+// import { ThemeProvider } from "@/components/custom/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/custom/footer";
 import { Poppins } from "next/font/google";
@@ -74,14 +74,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.className}`} suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster />
-        </ThemeProvider>
+        {/*   defaultTheme="light" */}
+        {/*   disableTransitionOnChange */}
+        {/* > */}
+        {children}
+        <Toaster />
+        {/* </ThemeProvider> */}
         <Footer />
       </body>
     </html>
