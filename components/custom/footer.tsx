@@ -44,8 +44,6 @@ const Footer: React.FC = () => {
         title: "ABOUT IBHARAT",
         links: [
           { label: "Who We Are", href: "/about" },
-          { label: "Work With Us", href: "/careers" },
-          { label: "Investor Relations", href: "/investor-relations" },
           { label: "Report Fraud", href: "/report-fraud" },
           { label: "Contact Us", href: "/contact" },
         ],
@@ -55,15 +53,15 @@ const Footer: React.FC = () => {
         links: [
           { label: "IBharat", href: "/ibharat" },
           { label: "Blog", href: "https://blog.ibharat.org" },
+          { label: "Advertising", href: "/advertisement" },
         ],
       },
       forUsers: {
         title: "FOR USERS",
         links: [
           { label: "Privacy", href: "/policies" },
-          { label: "Security", href: "/security" },
-          { label: "Terms", href: "/termsofuse" },
-          { label: "Sitemap", href: "/sitemap" },
+          { label: "Terms of Use", href: "/termsofuse" },
+          { label: "Feedback", href: "/feedback" },
           { label: "Submit URL", href: "/submit-url" },
         ],
       },
@@ -74,9 +72,6 @@ const Footer: React.FC = () => {
         links: [
           { label: "हम कौन हैं", href: "/about" },
           { label: "ब्लॉग", href: "/blog" },
-          { label: "हमारे साथ काम करें", href: "/careers" },
-          { label: "निवेशक संबंध", href: "/investor-relations" },
-          { label: "धोखाधड़ी की रिपोर्ट करें", href: "/report-fraud" },
           { label: "संपर्क करें", href: "/contact" },
         ],
       },
@@ -85,15 +80,16 @@ const Footer: React.FC = () => {
         links: [
           { label: "iBharat", href: "/ibharat" },
           { label: "ब्लॉग", href: "https://blog.ibharat.org" },
+          { label: "विज्ञापन", href: "/advertisement" },
         ],
       },
       forUsers: {
         title: "उपयोगकर्ताओं के लिए",
         links: [
           { label: "गोपनीयता", href: "/policies" },
-          { label: "सुरक्षा", href: "/security" },
-          { label: "शर्तें", href: "/terms" },
-          { label: "साइटमैप", href: "/sitemap" },
+          { label: "शर्तें", href: "/termsofuse" },
+          { label: "प्रतिक्रिया", href: "/feedback" },
+          { label: "URL प्रस्तुत करें", href: "/submit" },
         ],
       },
     },
@@ -196,7 +192,7 @@ const Footer: React.FC = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-blue-600 hover:text-blue-700"
+                  className="text-slate-800 hover:text-slate-600"
                 >
                   {social.icon}
                 </a>
@@ -206,7 +202,7 @@ const Footer: React.FC = () => {
               <Image
                 src="/app-store.png"
                 alt="Download on App Store"
-                className="w-[140px] h-auto sm:h-[41px] sm: mt-[9px] sm:w-[150px]"
+                className="w-[170px] h-auto sm:h-[41.5px] sm: mt-[8.5px] sm:w-[150px]"
                 width={120}
                 height={50}
               />
