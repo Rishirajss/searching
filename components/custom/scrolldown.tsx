@@ -7,7 +7,7 @@ const ScrollDownButton = () => {
 
   const scrollDown = () => {
     window.scrollTo({
-      top: window.innerHeight,
+      top: window.innerHeight + 50,
       behavior: "smooth",
     });
     setShowButton(false);

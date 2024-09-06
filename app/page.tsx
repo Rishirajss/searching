@@ -9,11 +9,11 @@ export default function Home() {
       <main className="flex min-h-screen max-w-screen flex-col justify-start md:justify-center gap-10 p-2 sm:p-6 md:p-24 md:py-12 mt-32 sm:mt-auto">
         <section className="flex justify-center">
           <Image
-            src="/ibharat.jpg"
+            src="/ibharat.png"
             alt="logo"
-            height="200"
-            width="350"
-            className="w-[160px] h-auto md:w-[280px] md:h-auto"
+            height={100}
+            width={320}
+            className="w-[160px] md:w-[320px]"
           ></Image>
         </section>
         <section>
