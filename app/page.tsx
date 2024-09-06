@@ -2,7 +2,7 @@ import { UserInput } from "@/components/custom/input";
 import Image from "next/image";
 import GetNews from "./get-news";
 import ScrollDownButton from "@/components/custom/scrolldown";
-
+import Additional from "@/components/custom/additional";
 export default function Home() {
   return (
     <>
@@ -28,6 +28,7 @@ export default function Home() {
       <section className="gap-10 p-2 sm:p-6 md:p-24 md:py-12 mt-32 sm:mt-auto">
         <GetNews />
       </section>
+      <Additional />
     </>
   );
 }
