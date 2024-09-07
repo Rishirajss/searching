@@ -202,7 +202,7 @@ const Footer: React.FC = () => {
               <Image
                 src="/app-store.png"
                 alt="Download on App Store"
-                className="w-[135px] h-[41.5px] sm:h-[41.5px] sm: mt-[8.5px] sm:w-[150px]"
+                className="w-[135px] h-[42px] sm:h-[41.5px] sm: mt-[8.5px] sm:w-[150px]"
                 width={120}
                 height={50}
               />
