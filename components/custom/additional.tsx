@@ -10,7 +10,7 @@ export default function Additional() {
         भारत का अपना स्वदेशी सर्च इंजन
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center sm:px-32 mt-6 py-4 sm:py-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center px-6 sm:px-32 mt-6 py-4 sm:py-10">
         {/* Swadeshi Section */}
         <div className="flex flex-col items-center text-center">
           <Image
@@ -60,7 +60,7 @@ export default function Additional() {
           </p>
         </div>
       </div>
-      <div className="cursor-pointer max-w-5xl w-full text-center py-8 ">
+      <div className="cursor-pointer max-w-5xl w-full text-center px-6 py-8 ">
         <Link
           href="/submiturl"
           className="bg-blue-500 rounded-md block w-full py-2"

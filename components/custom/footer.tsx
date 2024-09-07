@@ -140,7 +140,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-100 py-8 text-gray-600">
+    <footer className="bg-gray-100 pl-3 sm:pl-0 py-8 text-gray-600">
       <div className="container mx-auto px-4 md:px-14 lg:px-20">
         <div className="flex flex-wrap justify-between mb-8">
           <div className="w-full flex flex-col mb-5 sm:mb-0 sm:flex-row justify-between md:4 md:mb-10">
@@ -202,7 +202,7 @@ const Footer: React.FC = () => {
               <Image
                 src="/app-store.png"
                 alt="Download on App Store"
-                className="w-[170px] h-auto sm:h-[41.5px] sm: mt-[8.5px] sm:w-[150px]"
+                className="w-[135px] h-[41.5px] sm:h-[41.5px] sm: mt-[8.5px] sm:w-[150px]"
                 width={120}
                 height={50}
               />
