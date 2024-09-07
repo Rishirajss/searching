@@ -76,7 +76,7 @@ export default function NewsGrid({ newsItems }: NewsGridProps) {
       ))}
 
       {/* News Articles Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 px-2">
         {newsItems.map((item) => (
           <Card key={item._id} className="flex flex-col h-full">
             <a href={item.loc} target="_blank" rel="noopener noreferrer">
