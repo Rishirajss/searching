@@ -140,7 +140,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-100 pl-3 sm:pl-0 py-8 text-gray-600">
+    <footer className="bg-gray-100 pl-1.5 sm:pl-0 py-8 text-gray-600">
       <div className="container mx-auto px-4 md:px-14 lg:px-20">
         <div className="flex flex-wrap justify-between mb-8">
           <div className="w-full flex flex-col mb-5 sm:mb-0 sm:flex-row justify-between md:4 md:mb-10">
