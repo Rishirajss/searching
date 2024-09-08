@@ -198,16 +198,16 @@ const Footer: React.FC = () => {
                 </a>
               ))}
             </div>
-            <div className="flex items-center gap-2 space-y-2">
+            <div className="flex w-full items-center gap-2">
               <Image
-                src="/app-store.png"
+                src="/app.webp"
                 alt="Download on App Store"
-                className="w-[135px] h-[42px] sm:h-[41.5px] sm: mt-[8.5px] sm:w-[150px]"
+                className="w-[130px] h-auto sm:w-[150px]"
                 width={120}
                 height={50}
               />
               <Image
-                src="/google-play.png"
+                src="/play.webp"
                 className="w-[130px] h-auto sm:w-[150px]"
                 alt="Get it on Google Play"
                 width={120}

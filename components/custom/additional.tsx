@@ -126,11 +126,11 @@ export default function Additional() {
             rel="noopener noreferrer"
           >
             <Image
-              src="/google-play.png" // Replace with your Google Play badge image path
-              alt="Download on Google Play"
-              width={160}
-              height={40}
-              className=""
+              src="/play.webp"
+              className="w-[130px] h-auto sm:w-[150px]"
+              alt="Get it on Google Play"
+              width={120}
+              height={50}
             />
           </a>
         </div>
