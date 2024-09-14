@@ -63,7 +63,7 @@ export default function Additional() {
       <div className="cursor-pointer max-w-5xl w-full text-center px-6 py-8 ">
         <Link
           href="/submiturl"
-          className="bg-blue-500 rounded-md block w-full py-2"
+          className="bg-blue-500 text-white rounded-md block w-full py-2"
         >
           अपनी वेबसाइट को लिस्ट करें
         </Link>
