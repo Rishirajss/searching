@@ -12,6 +12,16 @@ const nextConfig = {
         hostname: "akm-img-a-in.tosshub.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "resize.indiatv.in",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "resize.indiatvnews.com",
+        port: "",
+      },
     ],
   },
 };
