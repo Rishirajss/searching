@@ -1,0 +1,9 @@
+{
+  "projectType": "nextjs",
+  "packageManager": "pnpm",
+  "scripts": {
+    "dev": "next dev",
+    "prod": "next start",
+    "build": "next build"
+  }
+}
