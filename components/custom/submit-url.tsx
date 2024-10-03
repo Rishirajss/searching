@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
+import { Loader } from "lucide-react";
+import { useState } from "react";
 
 const FormSchema = z.object({
   url: z.string().url({ message: "Invalid URL" }),
@@ -54,11 +56,13 @@ async function submitCustomDomain(data: {
 }
 
 export default function SubmitUrlForm() {
+  const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
+    setLoading(true);
     try {
       const urlExists = await checkUrlExists(data.url);
 
@@ -67,15 +71,17 @@ export default function SubmitUrlForm() {
           title: "URL does not exist!",
           description: "Please check the URL and try again.",
         });
+        setLoading(false);
         return;
       }
+      console.log(data);
 
       const url = new URL(data.url);
       const protocol = url.protocol;
-      const domain = url.hostname.split(".");
-      const tld = domain.pop(); // Top-level domain (TLD)
+      const [domain, tld] = url.hostname.split(".");
 
       const postData = { protocol, domain, tld };
+      console.log(postData);
 
       await submitCustomDomain(postData as any);
 
@@ -89,6 +95,8 @@ export default function SubmitUrlForm() {
         title: "Something went wrong!",
         description: "Make sure the URL is correct, else try again.",
       });
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -124,7 +132,13 @@ export default function SubmitUrlForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" disabled={loading}>
+          {loading ? (
+            <Loader className="animate-spin w-4 h-4 mr-2" /> // Loader icon with animation
+          ) : (
+            "Submit"
+          )}
+        </Button>
       </form>
     </Form>
   );
