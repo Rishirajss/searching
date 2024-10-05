@@ -8,12 +8,7 @@ export async function POST(req: Request) {
 
     // Check if the URL exists by making a HEAD request
     const response = await fetch(url, { method: "HEAD" });
-
-    if (
-      response.status === 200 ||
-      response.status === 301 ||
-      response.status === 302
-    ) {
+    if (response.status >= 200 && response.status < 400) {
       return NextResponse.json({ exists: true });
     } else {
       return NextResponse.json({ exists: false });
