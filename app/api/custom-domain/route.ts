@@ -8,7 +8,7 @@ const CUSTOM_DOMAIN_API_URL = process.env.NEXT_PUBLIC_SUBMIT_URL;
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-
+    console.log(body);
     // Forward the request to the insecure HTTP API
     const response = await fetch(`${CUSTOM_DOMAIN_API_URL}`, {
       method: "POST",
