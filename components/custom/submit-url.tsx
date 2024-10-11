@@ -74,14 +74,18 @@ export default function SubmitUrlForm() {
         setLoading(false);
         return;
       }
-      console.log(data);
+      const urlObj = new URL(data.url);
 
-      const url = new URL(data.url);
-      const protocol = url.protocol;
-      const [domain, tld] = url.hostname.split(".");
+      // Extract protocol, domain, and TLD
+      const protocol = urlObj.protocol.split(":")[0];
+      const hostnameParts = urlObj.hostname.split(".");
+      const domain = hostnameParts[hostnameParts.length - 2];
+      const tld = hostnameParts[hostnameParts.length - 1];
 
-      const postData = { protocol, domain, tld };
-      console.log(postData);
+      // Extract the last part of the path if it exists
+      let path = urlObj.pathname.split("/").filter(Boolean).pop();
+
+      const postData = { protocol, domain, path, tld };
 
       await submitCustomDomain(postData as any);
 
