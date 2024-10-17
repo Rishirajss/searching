@@ -9,7 +9,7 @@ import { PaginationComponent } from "./pagination";
 import Image from "next/image";
 import Link from "next/link";
 
-const BASE_URL = "http://68.183.80.188:5009/search/v3";
+const BASE_URL = "https://beta.api.admin.ibharat.org/search/v3";
 
 interface SearchResult {
   popular_title?: string;
