@@ -95,7 +95,7 @@ export const ResultPage: React.FC = () => {
 
   if (!searchData?.totalCount && searchData?.profileData == null) {
     return (
-      <div className="flex flex-col justify-center items-center h-52 rounded-lg  transform hover:scale-105">
+      <div className="flex flex-col py-20 justify-center items-center h-52 rounded-lg  transform hover:scale-105">
         <p className="text-lg font-semibold mb-4">UH OH... No Results Found!</p>
         <p className="text-sm mb-4 text-center">
           It seems we&apos;re still gathering data. Your help could make a
@@ -139,7 +139,7 @@ export const ResultPage: React.FC = () => {
     const siteName = res.meta?.["og:site_name"];
 
     return (
-      <div className="mb-2 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700">
+      <div className="mb-1 px-3 py-1 rounded-lg">
         <div className="flex items-center gap-2">
           <a
             href={url}
@@ -157,15 +157,15 @@ export const ResultPage: React.FC = () => {
         <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-1">
           {truncateText(description, 150)}
         </p>
-        {res.meta?.["twitter:image"] && (
-          <Image
-            src={res.meta["twitter:image"]}
-            alt={title}
-            width={100}
-            height={100}
-            className="mt-2 rounded-md"
-          />
-        )}
+        {/* {res.meta?.["twitter:image"] && ( */}
+        {/*   <Image */}
+        {/*     src={res.meta["twitter:image"]} */}
+        {/*     alt={title} */}
+        {/*     width={100} */}
+        {/*     height={100} */}
+        {/*     className="mt-2 rounded-md" */}
+        {/*   /> */}
+        {/* )} */}
       </div>
     );
   };
