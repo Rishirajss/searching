@@ -1,0 +1,9 @@
+export const truncateText = (
+  text: string | undefined,
+  maxLength: number,
+): string => {
+  if (text && text.length > maxLength) {
+    return text.substring(0, maxLength) + "...";
+  }
+  return text || "";
+};
