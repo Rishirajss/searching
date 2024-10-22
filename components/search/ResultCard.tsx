@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SearchResult } from "@/utils/types";
 import { truncateText } from "@/utils/searchUtils";
 
@@ -7,14 +8,18 @@ interface ResultCardProps {
 
 export const ResultCard: React.FC<ResultCardProps> = ({ result }) => {
   const title =
-    result.popular_title ||
     result.title ||
+    result.popular_title ||
+    result.cstm_title ||
+    result.swdesi_title ||
     result.meta?.["og:title"] ||
     result.meta?.["twitter:title"] ||
     "Untitled";
 
   const description =
     result.popular_dis ||
+    result.cstm_dis ||
+    result.swdesi_dis ||
     result.meta?.description ||
     result.meta?.["og:description"] ||
     result.meta?.["twitter:description"] ||
@@ -22,6 +27,8 @@ export const ResultCard: React.FC<ResultCardProps> = ({ result }) => {
 
   const url =
     result.popular_web ||
+    result.cstm_url ||
+    result.swdesi_url ||
     `${result.protocol}://${result.domain}.${result.tld}${result.path ? `/${result.path}` : ""}` ||
     result.meta?.["og:url"] ||
     "";

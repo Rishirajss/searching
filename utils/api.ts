@@ -7,7 +7,7 @@ export const fetchSearchResults = async (
   page: number,
   tab: TabType,
 ) => {
-  const url = `${BASE_URL}/html/${page}?q=${encodeURIComponent(query)}&tab=${tab}`;
+  const url = `${BASE_URL}/${encodeURIComponent(query)}/${page}?tab=${tab}`;
 
   const response = await fetchWithHeaders(url);
   return response;

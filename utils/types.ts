@@ -19,9 +19,15 @@ export interface NewsItem {
 
 export interface SearchResult {
   popular_title?: string;
-  title?: string;
+  title: string;
   popular_dis?: string;
   popular_web?: string;
+  cstm_title?: string;
+  cstm_dis?: string;
+  cstm_url?: string;
+  swdesi_title?: string;
+  swdesi_dis?: string;
+  swdesi_url?: string;
   protocol?: string;
   domain?: string;
   tld?: string;

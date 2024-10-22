@@ -5,17 +5,19 @@ import { truncateText } from "@/utils/searchUtils";
 interface SidePanelProps {
   profileData: ProfileData | null;
   wikiData: WikiData | null;
+  activeTab: string;
 }
 
 export const SidePanel: React.FC<SidePanelProps> = ({
   profileData,
   wikiData,
+  activeTab,
 }) => {
-  if (!profileData && !wikiData) {
-    return <p>No additional information available.</p>;
+  if ((!profileData && !wikiData && activeTab === "all") || activeTab === "") {
+    return <p className="mt-4 ml-2">No additional information available.</p>;
   }
 
-  return (
+  return profileData || wikiData ? (
     <div className="mt-4 border border-1 px-4 py-3 bg-gray-300/20 dark:bg-gray-800/10 rounded-md">
       {profileData ? (
         <>
@@ -72,5 +74,7 @@ export const SidePanel: React.FC<SidePanelProps> = ({
         )
       )}
     </div>
+  ) : (
+    ""
   );
 };

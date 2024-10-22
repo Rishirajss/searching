@@ -48,18 +48,21 @@ export const ResultPage: React.FC = () => {
 
   if (!searchData?.totalCount && searchData?.profileData == null) {
     return (
-      <div className="flex flex-col py-20 justify-center items-center h-52 rounded-lg">
-        <p className="text-lg font-semibold mb-4">No Results Found</p>
-        <p className="text-sm mb-4 text-center">
-          Would you like to contribute by submitting your website URL?
-        </p>
-        <Link
-          href="/submiturl"
-          className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md transition"
-        >
-          Submit URL
-        </Link>
-      </div>
+      <>
+        <SubNav />
+        <div className="flex flex-col py-20 justify-center items-center h-52 rounded-lg">
+          <p className="text-lg font-semibold mb-4">No Results Found</p>
+          <p className="text-sm mb-4 text-center">
+            Would you like to contribute by submitting your website URL?
+          </p>
+          <Link
+            href="/submiturl"
+            className="px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md transition"
+          >
+            Submit URL
+          </Link>
+        </div>
+      </>
     );
   }
 
@@ -70,7 +73,7 @@ export const ResultPage: React.FC = () => {
       case "news":
         return <NewsGrid news={searchData.records} />;
       default:
-        return searchData.records.map((result, index) => (
+        return searchData.records.map((result: any, index: number) => (
           <ResultCard key={index} result={result} />
         ));
     }
@@ -91,6 +94,7 @@ export const ResultPage: React.FC = () => {
           <SidePanel
             profileData={searchData.profileData}
             wikiData={searchData.wikiData}
+            activeTab={activeTab}
           />
         </div>
       </div>
