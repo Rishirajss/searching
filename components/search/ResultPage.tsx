@@ -23,7 +23,7 @@ export const ResultPage: React.FC = () => {
   const { data: searchData, isLoading } = useSWR(
     searchQuery ? [searchQuery, page, activeTab] : null,
     ([query, page, tab]) => fetchSearchResults(query, page, tab),
-    { revalidateOnFocus: false },
+    { revalidateOnFocus: false }
   );
 
   console.log(searchData);
@@ -34,7 +34,7 @@ export const ResultPage: React.FC = () => {
       params.set("page", newPage.toString());
       router.push(`/search?${params.toString()}`);
     },
-    [router, search],
+    [router, search]
   );
 
   if (!searchQuery) {
